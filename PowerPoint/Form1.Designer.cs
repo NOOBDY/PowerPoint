@@ -29,7 +29,9 @@ namespace PowerPoint
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this._dataGridView1 = new System.Windows.Forms.DataGridView();
+            this._delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this._groupBox1 = new System.Windows.Forms.GroupBox();
             this._comboBox1 = new System.Windows.Forms.ComboBox();
             this._button1 = new System.Windows.Forms.Button();
@@ -37,10 +39,15 @@ namespace PowerPoint
             this._toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this._aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._groupBox2 = new System.Windows.Forms.GroupBox();
-            this._delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this._toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this._toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this._toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this._toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this._canvas = new PowerPoint.Canvas();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView1)).BeginInit();
             this._groupBox1.SuspendLayout();
             this._menuStrip1.SuspendLayout();
+            this._toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // _dataGridView1
@@ -60,7 +67,18 @@ namespace PowerPoint
             this._dataGridView1.RowTemplate.Height = 24;
             this._dataGridView1.Size = new System.Drawing.Size(277, 550);
             this._dataGridView1.TabIndex = 0;
-            this._dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1CellContentClick);
+            this._dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickDataGridView1CellContent);
+            // 
+            // _delete
+            // 
+            this._delete.DataPropertyName = "Delete";
+            this._delete.HeaderText = "Delete";
+            this._delete.MinimumWidth = 6;
+            this._delete.Name = "_delete";
+            this._delete.ReadOnly = true;
+            this._delete.Text = "Delete";
+            this._delete.UseColumnTextForButtonValue = true;
+            this._delete.Width = 60;
             // 
             // _groupBox1
             // 
@@ -68,14 +86,13 @@ namespace PowerPoint
             this._groupBox1.Controls.Add(this._comboBox1);
             this._groupBox1.Controls.Add(this._button1);
             this._groupBox1.Controls.Add(this._dataGridView1);
-            this._groupBox1.Location = new System.Drawing.Point(660, 26);
+            this._groupBox1.Location = new System.Drawing.Point(660, 50);
             this._groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this._groupBox1.Name = "_groupBox1";
             this._groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this._groupBox1.Size = new System.Drawing.Size(286, 546);
             this._groupBox1.TabIndex = 1;
             this._groupBox1.TabStop = false;
-            this._groupBox1.Text = "_groupBox1";
             // 
             // _comboBox1
             // 
@@ -123,29 +140,66 @@ namespace PowerPoint
             // _groupBox2
             // 
             this._groupBox2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this._groupBox2.Location = new System.Drawing.Point(0, 26);
+            this._groupBox2.Location = new System.Drawing.Point(0, 50);
             this._groupBox2.Name = "_groupBox2";
             this._groupBox2.Size = new System.Drawing.Size(200, 522);
             this._groupBox2.TabIndex = 3;
             this._groupBox2.TabStop = false;
-            this._groupBox2.Text = "_groupBox2";
             // 
-            // _delete
+            // _toolStrip1
             // 
-            this._delete.DataPropertyName = "Delete";
-            this._delete.HeaderText = "Delete";
-            this._delete.MinimumWidth = 6;
-            this._delete.Name = "_delete";
-            this._delete.ReadOnly = true;
-            this._delete.Text = "Delete";
-            this._delete.UseColumnTextForButtonValue = true;
-            this._delete.Width = 60;
+            this._toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._toolStripButton1,
+            this._toolStripButton2,
+            this._toolStripButton3});
+            this._toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this._toolStrip1.Name = "_toolStrip1";
+            this._toolStrip1.Size = new System.Drawing.Size(946, 25);
+            this._toolStrip1.TabIndex = 4;
+            this._toolStrip1.Text = "_toolStrip1";
+            // 
+            // _toolStripButton1
+            // 
+            this._toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripButton1.Image")));
+            this._toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripButton1.Name = "_toolStripButton1";
+            this._toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this._toolStripButton1.Text = "_toolStripButton1";
+            // 
+            // _toolStripButton2
+            // 
+            this._toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripButton2.Image")));
+            this._toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripButton2.Name = "_toolStripButton2";
+            this._toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this._toolStripButton2.Text = "_toolStripButton2";
+            // 
+            // _toolStripButton3
+            // 
+            this._toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripButton3.Image")));
+            this._toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripButton3.Name = "_toolStripButton3";
+            this._toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this._toolStripButton3.Text = "_toolStripButton3";
+            // 
+            // _canvas
+            // 
+            this._canvas.BackColor = System.Drawing.SystemColors.Info;
+            this._canvas.Location = new System.Drawing.Point(207, 53);
+            this._canvas.Name = "_canvas";
+            this._canvas.Size = new System.Drawing.Size(448, 489);
+            this._canvas.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 547);
+            this.Controls.Add(this._canvas);
+            this.Controls.Add(this._toolStrip1);
             this.Controls.Add(this._groupBox2);
             this.Controls.Add(this._groupBox1);
             this.Controls.Add(this._menuStrip1);
@@ -156,6 +210,8 @@ namespace PowerPoint
             this._groupBox1.ResumeLayout(false);
             this._menuStrip1.ResumeLayout(false);
             this._menuStrip1.PerformLayout();
+            this._toolStrip1.ResumeLayout(false);
+            this._toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +228,11 @@ namespace PowerPoint
         private System.Windows.Forms.Button _button1;
         private System.Windows.Forms.GroupBox _groupBox2;
         private System.Windows.Forms.DataGridViewButtonColumn _delete;
+        private System.Windows.Forms.ToolStrip _toolStrip1;
+        private System.Windows.Forms.ToolStripButton _toolStripButton1;
+        private System.Windows.Forms.ToolStripButton _toolStripButton2;
+        private System.Windows.Forms.ToolStripButton _toolStripButton3;
+        private Canvas _canvas;
     }
 }
 

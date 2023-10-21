@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using System.Drawing;
-using System.Runtime.Remoting.Messaging;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace PowerPoint
 {
-    internal class Rectangle : Shape
+    internal class Ellipse : Shape
     {
-        public Rectangle(Vector2 point1, Vector2 point2) : base(point1, point2)
+        public Ellipse(Vector2 point1, Vector2 point2) : base(point1, point2)
         {
-            Name = RECTANGLE_STRING;
+            Name = ELLIPSE_STRING;
         }
 
         /// <summary>
@@ -19,14 +21,16 @@ namespace PowerPoint
         public override void Draw(IGraphics graphics)
         {
             int xpath1 = _point1.Xpath;
-            Func<int> year1 = () => _point1.Year;
+            Func<int> year1 = () => _point1.Year; 
             Func<int> xpath2 = () => _point2.Xpath;
             Func<int> year2 = () => _point2.Year; 
+            var xpath = Math.Min(xpath1, xpath2());
             var year = Math.Min(year1(), year2());
             var data = _point1.DrinkAlcohol(_point2);
-            graphics.DrawRectangle(xpath1, year, data.Item1, data.Item2);
+            graphics.DrawEllipse(xpath, year, data.Item1, data.Item2);
         }
 
-        private const string RECTANGLE_STRING = "Rectangle";
+        private const string ELLIPSE_STRING = "Ellipse";
     }
 }
+

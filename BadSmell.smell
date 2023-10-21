@@ -188,54 +188,38 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
-              <SmellType>ICS(函式-2)</SmellType>
-              <HashCode>Method2.Form1.DataGridView1CellContentClick</HashCode>
+              <SmellType>ICS(類別宣告-1)</SmellType>
+              <HashCode>ClassDeclaration1.Shape._point1</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>42</Line>
+              <File>Shape.cs</File>
+              <Line>25</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
+              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
               <Id>2</Id>
-              <SmellType>Static method and fields(濫用Static)</SmellType>
-              <HashCode>StaticMethodAndFields 10537127</HashCode>
+              <SmellType>ICS(類別宣告-1)</SmellType>
+              <HashCode>ClassDeclaration1.Shape._point2</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
-              <File>ShapeFactory.cs</File>
-              <Line>39</Line>
+              <File>Shape.cs</File>
+              <Line>26</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment />
+              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
               <Id>3</Id>
-              <SmellType>Static method and fields(濫用Static)</SmellType>
-              <HashCode>StaticMethodAndFields 57616922</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>ShapeFactory.cs</File>
-              <Line>18</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>4</Id>
               <SmellType>Unsuitable naming(名不符實)-Vector2(vector)</SmellType>
               <HashCode>UnsuitableNaming.PowerPoint.Vector2.Vector2</HashCode>
               <Severity>Red</Severity>
@@ -254,12 +238,19 @@
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
             <string>UnsuitableNaming.PowerPoint.Vector2.Vector2</string>
-            <string>Method2.Form1.DataGridView1CellContentClick</string>
-            <string>StaticMethodAndFields 10537127</string>
-            <string>StaticMethodAndFields 57616922</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
+              <AnalysisFile>
+                <RelativePath>Canvas.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Ellipse.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Form1.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
@@ -269,6 +260,16 @@
                 <RelativePath>Form1.Designer.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>GraphicsWorld.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>IGraphics.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Line.cs</RelativePath>
@@ -311,13 +312,23 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>ShapeType.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Vector2.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ViewModel.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>413</ProductionLoc>
+          <ProductionLoc>841</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

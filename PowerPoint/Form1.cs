@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
+
+using ButtonClickFunction = System.Action<object, System.EventArgs>;
 
 namespace PowerPoint
 {
@@ -12,14 +11,47 @@ namespace PowerPoint
         public Form1()
         {
             InitializeComponent();
+            _comboBox1.DataSource = Enum.GetValues(typeof(ShapeType));
 
-            // foreach (var type in Enum.GetValues(typeof(ShapeFactory.ShapeType)))
-            // {
-            //     _comboBox1.Items.Add(type);
-            // }
-            _comboBox1.DataSource = Enum.GetValues(typeof(ShapeFactory.ShapeType));
+            _viewModel = new ViewModel();
+            _viewModel._modelChanged += () => Invalidate(true);
+            _dataGridView1.DataSource = _viewModel.Shapes;
 
-            _dataGridView1.DataSource = _shapes;
+            _toolStripButton1.Click += new EventHandler(ClickTooStripButton(ShapeType.Line));
+            _toolStripButton2.Click += new EventHandler(ClickTooStripButton(ShapeType.Rectangle));
+            _toolStripButton3.Click += new EventHandler(ClickTooStripButton(ShapeType.Ellipse));
+
+            _canvas.MouseDown += _viewModel.HandleCanvasPressed;
+            _canvas.MouseUp += _viewModel.HandleCanvasReleased;
+            _canvas.MouseMove += _viewModel.HandleCanvasMoved;
+            _canvas.Paint += HandleCanvasPaint;
+            Controls.Add(_canvas);
+        }
+
+        /// <summary>
+        /// click
+        /// </summary>
+        /// <param name="shapeType"></param>
+        /// <returns></returns>
+        private ButtonClickFunction ClickTooStripButton(ShapeType shapeType)
+        {
+            return (sender, e) =>
+            {
+                _viewModel.SelectedShape = shapeType;
+                _toolStripButton1.Checked = ShapeType.Line == shapeType;
+                _toolStripButton2.Checked = ShapeType.Rectangle == shapeType;
+                _toolStripButton3.Checked = ShapeType.Ellipse == shapeType;
+            };
+        }
+
+        /// <summary>
+        /// handle canvas paint
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleCanvasPaint(object sender, PaintEventArgs e)
+        {
+            _viewModel.Draw(e.Graphics);
         }
 
         /// <summary>
@@ -28,23 +60,34 @@ namespace PowerPoint
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Button1Click(object sender, EventArgs e)
-        {
-            _shapes.Add(ShapeFactory.CreateShape((ShapeFactory.ShapeType)_comboBox1.SelectedItem));
-        }
+        { 
+            Random random = new Random();
+            const int LOWER_BOUND = 50;
+            const int UPPER_BOUND = 400;
 
-        private BindingList<Shape> _shapes = new BindingList<Shape>();
+            var point1 = new Vector2();
+            var point2 = new Vector2();
+            point1.Xpath = random.Next(LOWER_BOUND, UPPER_BOUND);
+            point1.Year = random.Next(LOWER_BOUND, UPPER_BOUND);
+            point2.Xpath = random.Next(LOWER_BOUND, UPPER_BOUND);
+            point2.Year = random.Next(LOWER_BOUND, UPPER_BOUND);
+
+            _viewModel.Add(ShapeFactory.CreateShape((ShapeType)_comboBox1.SelectedItem, point1, point2));
+        }
 
         /// <summary>
         /// click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DataGridView1CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ClickDataGridView1CellContent(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
-                _shapes.RemoveAt(e.RowIndex);
+                _viewModel.RemoveAt(e.RowIndex);
             }
         }
+
+        private readonly ViewModel _viewModel;
     }
 }

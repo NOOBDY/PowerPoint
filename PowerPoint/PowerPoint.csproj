@@ -46,7 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Canvas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ellipse.cs" />
+    <Compile Include="GraphicsWorld.cs" />
+    <Compile Include="IGraphics.cs" />
     <Compile Include="Line.cs" />
+    <Compile Include="ShapeType.cs" />
+    <Compile Include="ViewModel.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="Form1.cs">

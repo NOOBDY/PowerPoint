@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PowerPoint
 {
-    internal class GraphicsWorld : IGraphics
+    internal class GraphicsWrapper : IGraphics
     {
-        public GraphicsWorld(Graphics graphics)
+        public GraphicsWrapper(Graphics graphics)
         {
             _graphics = graphics;
         }

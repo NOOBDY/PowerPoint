@@ -20,17 +20,17 @@ namespace PowerPoint
         /// <param name="graphics"></param>
         public void Draw(Graphics graphics)
         {
-            var world = new GraphicsWorld(graphics);
+            var wrapper = new GraphicsWrapper(graphics);
 
             foreach (var shape in Shapes)
             {
-                shape.Draw(world);
+                shape.Draw(wrapper);
             }
 
             if (!_isPressed)
                 return;
 
-            _previewShape.Draw(world);
+            _previewShape.Draw(wrapper);
         }
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace PowerPoint
         {
             if (_isPressed)
             {
-                _previewShape._point2.Xpath = e.X;
-                _previewShape._point2.Year = e.Y;
+                _previewShape._point2.X = e.X;
+                _previewShape._point2.Y = e.Y;
                 NotifyModelChanged();
             }
         }
@@ -107,8 +107,8 @@ namespace PowerPoint
 
             _isPressed = false;
 
-            _previewShape._point2.Xpath = e.X;
-            _previewShape._point2.Year = e.Y;
+            _previewShape._point2.X = e.X;
+            _previewShape._point2.Y = e.Y;
             Shapes.Add(ShapeFactory.CreateShape(SelectedShape, _previewShape._point1, _previewShape._point2));
             NotifyModelChanged();
         }

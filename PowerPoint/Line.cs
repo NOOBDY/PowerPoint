@@ -15,7 +15,7 @@ namespace PowerPoint
         /// <param name="graphics"></param>
         public override void Draw(IGraphics graphics)
         {
-            graphics.DrawLine(_point1.Xpath, _point1.Year, _point2.Xpath, _point2.Year);
+            graphics.DrawLine(_point1.X, _point1.Y, _point2.X, _point2.Y);
         }
 
         private const string LINE_STRING = "Line";

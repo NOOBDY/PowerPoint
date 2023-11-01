@@ -67,10 +67,10 @@ namespace PowerPoint
 
             var point1 = new Vector2();
             var point2 = new Vector2();
-            point1.Xpath = random.Next(LOWER_BOUND, UPPER_BOUND);
-            point1.Year = random.Next(LOWER_BOUND, UPPER_BOUND);
-            point2.Xpath = random.Next(LOWER_BOUND, UPPER_BOUND);
-            point2.Year = random.Next(LOWER_BOUND, UPPER_BOUND);
+            point1.X = random.Next(LOWER_BOUND, UPPER_BOUND);
+            point1.Y = random.Next(LOWER_BOUND, UPPER_BOUND);
+            point2.X = random.Next(LOWER_BOUND, UPPER_BOUND);
+            point2.Y = random.Next(LOWER_BOUND, UPPER_BOUND);
 
             _viewModel.Add(ShapeFactory.CreateShape((ShapeType)_comboBox1.SelectedItem, point1, point2));
         }

@@ -20,14 +20,11 @@ namespace PowerPoint
         /// <param name="graphics"></param>
         public override void Draw(IGraphics graphics)
         {
-            int xpath1 = _point1.Xpath;
-            Func<int> year1 = () => _point1.Year; 
-            Func<int> xpath2 = () => _point2.Xpath;
-            Func<int> year2 = () => _point2.Year; 
-            var xpath = Math.Min(xpath1, xpath2());
-            var year = Math.Min(year1(), year2());
-            var data = _point1.DrinkAlcohol(_point2);
-            graphics.DrawEllipse(xpath, year, data.Item1, data.Item2);
+            var x = Math.Min(_point1.X, _point2.X);
+            var y = Math.Min(_point1.Y, _point2.Y);
+            var width = Math.Abs(_point1.X - _point2.X);
+            var height = Math.Abs(_point1.Y - _point2.Y);
+            graphics.DrawEllipse(x, y, width, height);
         }
 
         private const string ELLIPSE_STRING = "Ellipse";

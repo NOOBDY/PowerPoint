@@ -127,7 +127,7 @@
     <value>137, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="_toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/xpath-microsoft.net.object.bytearray.base64">
+  <data name="_toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAYAAACPZlfNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAYwSURBVHhe7Z1NKG1dHMblI91IYiApgytJjJRODMxkIuXe
@@ -160,7 +160,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="_toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/xpath-microsoft.net.object.bytearray.base64">
+  <data name="_toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG4SURBVHhe7dlRjcJAAEXRSkEKEpCABBwgqRKQgAQkIGE2
@@ -174,7 +174,7 @@
         RU5ErkJggg==
 </value>
   </data>
-  <data name="_toolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/xpath-microsoft.net.object.bytearray.base64">
+  <data name="_toolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAYAAACPZlfNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAArhSURBVHhe7Z1rqA5dFMflkkSSk+SSRJJLEp2UJJck8oEP

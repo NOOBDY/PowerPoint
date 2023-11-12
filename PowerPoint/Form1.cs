@@ -17,9 +17,10 @@ namespace PowerPoint
             _viewModel._modelChanged += () => Invalidate(true);
             _dataGridView1.DataSource = _viewModel.Shapes;
 
-            _toolStripButton1.Click += new EventHandler(ClickTooStripButton(ShapeType.Line));
-            _toolStripButton2.Click += new EventHandler(ClickTooStripButton(ShapeType.Rectangle));
-            _toolStripButton3.Click += new EventHandler(ClickTooStripButton(ShapeType.Ellipse));
+            _toolStripButton1.Click += new EventHandler(ClickToolStripButton(ShapeType.Line));
+            _toolStripButton2.Click += new EventHandler(ClickToolStripButton(ShapeType.Rectangle));
+            _toolStripButton3.Click += new EventHandler(ClickToolStripButton(ShapeType.Ellipse));
+            _toolStripButton4.Click += new EventHandler(ClickPointer());
 
             _canvas.MouseDown += _viewModel.HandleCanvasPressed;
             _canvas.MouseUp += _viewModel.HandleCanvasReleased;
@@ -29,18 +30,43 @@ namespace PowerPoint
         }
 
         /// <summary>
+        /// update
+        /// </summary>
+        public void UpdateToolbar()
+        {
+            _toolStripButton1.Checked = _viewModel.CurrentMode == Mode.Draw && _viewModel.SelectedShape == ShapeType.Line;
+            _toolStripButton2.Checked = _viewModel.CurrentMode == Mode.Draw && _viewModel.SelectedShape == ShapeType.Rectangle;
+            _toolStripButton3.Checked = _viewModel.CurrentMode == Mode.Draw && _viewModel.SelectedShape == ShapeType.Ellipse;
+            _toolStripButton4.Checked = _viewModel.CurrentMode == Mode.Select;
+        }
+
+        /// <summary>
         /// click
         /// </summary>
         /// <param name="shapeType"></param>
         /// <returns></returns>
-        private ButtonClickFunction ClickTooStripButton(ShapeType shapeType)
+        private ButtonClickFunction ClickToolStripButton(ShapeType shapeType)
         {
             return (sender, e) =>
             {
+                _viewModel.CurrentMode = Mode.Draw;
                 _viewModel.SelectedShape = shapeType;
-                _toolStripButton1.Checked = ShapeType.Line == shapeType;
-                _toolStripButton2.Checked = ShapeType.Rectangle == shapeType;
-                _toolStripButton3.Checked = ShapeType.Ellipse == shapeType;
+
+                UpdateToolbar();
+            };
+        }
+
+        /// <summary>
+        /// click
+        /// </summary>
+        /// <returns></returns>
+        private ButtonClickFunction ClickPointer()
+        {
+            return (sender, e) =>
+            {
+                _viewModel.CurrentMode = Mode.Select;
+
+                UpdateToolbar();
             };
         }
 
@@ -52,6 +78,8 @@ namespace PowerPoint
         private void HandleCanvasPaint(object sender, PaintEventArgs e)
         {
             _viewModel.Draw(e.Graphics);
+
+            UpdateToolbar();
         }
 
         /// <summary>
@@ -61,7 +89,7 @@ namespace PowerPoint
         /// <param name="e"></param>
         private void Button1Click(object sender, EventArgs e)
         { 
-            Random random = new Random();
+            var random = new Random();
             const int LOWER_BOUND = 50;
             const int UPPER_BOUND = 400;
 

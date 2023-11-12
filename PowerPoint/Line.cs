@@ -13,9 +13,12 @@ namespace PowerPoint
         /// draw
         /// </summary>
         /// <param name="graphics"></param>
-        public override void Draw(IGraphics graphics)
+        public override void Draw(Graphics graphics)
         {
-            graphics.DrawLine(_point1.X, _point1.Y, _point2.X, _point2.Y);
+            graphics.DrawLine(Pens.Black, _point1.X, _point1.Y, _point2.X, _point2.Y);
+
+            if (_selected)
+                ShowSelectedPreview(graphics);
         }
 
         private const string LINE_STRING = "Line";

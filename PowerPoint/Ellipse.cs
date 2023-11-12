@@ -18,13 +18,16 @@ namespace PowerPoint
         /// draw
         /// </summary>
         /// <param name="graphics"></param>
-        public override void Draw(IGraphics graphics)
+        public override void Draw(Graphics graphics)
         {
             var x = Math.Min(_point1.X, _point2.X);
             var y = Math.Min(_point1.Y, _point2.Y);
             var width = Math.Abs(_point1.X - _point2.X);
             var height = Math.Abs(_point1.Y - _point2.Y);
-            graphics.DrawEllipse(x, y, width, height);
+            graphics.DrawEllipse(Pens.Black, x, y, width, height);
+
+            if (_selected)
+                ShowSelectedPreview(graphics);
         }
 
         private const string ELLIPSE_STRING = "Ellipse";

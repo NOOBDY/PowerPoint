@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PowerPoint
@@ -20,17 +22,16 @@ namespace PowerPoint
         /// <param name="graphics"></param>
         public void Draw(Graphics graphics)
         {
-            var wrapper = new GraphicsWrapper(graphics);
-
             foreach (var shape in Shapes)
             {
-                shape.Draw(wrapper);
+                shape.Draw(graphics);
             }
 
             if (!_isPressed)
                 return;
 
-            _previewShape.Draw(wrapper);
+            if (_previewShape != null)
+                _previewShape.Draw(graphics);
         }
 
         /// <summary>
@@ -64,6 +65,16 @@ namespace PowerPoint
             }
         }
 
+        private bool IsInRange(Vector2 point1, Vector2 point2, Vector2 target)
+        {
+            var xMin = Math.Min(point1.X, point2.X);
+            var xMax = Math.Max(point1.X, point2.X);
+            var yMin = Math.Min(point1.Y, point2.Y);
+            var yMax = Math.Max(point1.Y, point2.Y);
+
+            return (xMin < target.X && target.X < xMax) && (yMin < target.Y && target.Y < yMax);
+        }
+
         /// <summary>
         /// pressed
         /// </summary>
@@ -72,6 +83,18 @@ namespace PowerPoint
         public void HandleCanvasPressed(object sender, MouseEventArgs e)
         {
             _isPressed = true;
+
+            if (CurrentMode == Mode.Select)
+            {
+                foreach (var s in Shapes)
+                {
+                    s._selected = IsInRange(s._point1, s._point2, new Vector2(e.X, e.Y));
+                }
+
+                NotifyModelChanged();
+                return;
+            }
+
             _previewShape = ShapeFactory.CreateShape
             (
                 SelectedShape,
@@ -87,12 +110,24 @@ namespace PowerPoint
         /// <param name="e"></param>
         public void HandleCanvasMoved(object sender, MouseEventArgs e)
         {
-            if (_isPressed)
+            if (!_isPressed)
+                return;
+
+            if (CurrentMode == Mode.Select)
             {
-                _previewShape._point2.X = e.X;
-                _previewShape._point2.Y = e.Y;
-                NotifyModelChanged();
+                var selectedShape = Shapes.FirstOrDefault(
+                    s => IsInRange(s._point1, s._point2, new Vector2(e.X, e.Y))
+                );
+
+                if (selectedShape == null)
+                    return;
+
+                return;
             }
+
+            _previewShape._point2.X = e.X;
+            _previewShape._point2.Y = e.Y;
+            NotifyModelChanged();
         }
 
         /// <summary>
@@ -107,14 +142,24 @@ namespace PowerPoint
 
             _isPressed = false;
 
+            if (CurrentMode == Mode.Select)
+            {
+                return;
+            }
+
             _previewShape._point2.X = e.X;
             _previewShape._point2.Y = e.Y;
             Shapes.Add(ShapeFactory.CreateShape(SelectedShape, _previewShape._point1, _previewShape._point2));
+
+            _previewShape = null;
+            CurrentMode = Mode.Select;
+
             NotifyModelChanged();
         }
 
         private Shape _previewShape;
         private bool _isPressed;
+        public Mode CurrentMode;
 
         public BindingList<Shape> Shapes
         {

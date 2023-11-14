@@ -65,6 +65,23 @@ namespace PowerPoint
             }
         }
 
+        /// <summary>
+        /// delete
+        /// </summary>
+        public void DeleteSelected()
+        {
+            var index = Shapes.ToList().FindIndex(s => s._selected);
+            Shapes.RemoveAt(index);
+            NotifyModelChanged();
+        }
+
+        /// <summary>
+        /// range
+        /// </summary>
+        /// <param name="point1"></param>
+        /// <param name="point2"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         private bool IsInRange(Vector2 point1, Vector2 point2, Vector2 target)
         {
             var xMin = Math.Min(point1.X, point2.X);
@@ -83,12 +100,13 @@ namespace PowerPoint
         public void HandleCanvasPressed(object sender, MouseEventArgs e)
         {
             _isPressed = true;
+            _previousMousePosition = new Vector2(e.X, e.Y);
 
             if (CurrentMode == Mode.Select)
             {
                 foreach (var s in Shapes)
                 {
-                    s._selected = IsInRange(s._point1, s._point2, new Vector2(e.X, e.Y));
+                    s._selected = IsInRange(s._point1, s._point2, _previousMousePosition);
                 }
 
                 NotifyModelChanged();
@@ -122,6 +140,16 @@ namespace PowerPoint
                 if (selectedShape == null)
                     return;
 
+                var mouseDelta = new Vector2(e.X - _previousMousePosition.X, e.Y - _previousMousePosition.Y);
+                _previousMousePosition.X = e.X;
+                _previousMousePosition.Y = e.Y;
+
+                selectedShape._point1.X += mouseDelta.X;
+                selectedShape._point1.Y += mouseDelta.Y;
+                selectedShape._point2.X += mouseDelta.X;
+                selectedShape._point2.Y += mouseDelta.Y;
+
+                NotifyModelChanged();
                 return;
             }
 
@@ -164,6 +192,7 @@ namespace PowerPoint
         public BindingList<Shape> Shapes
         {
             get;
+            private set;
         }
 
         public ShapeType SelectedShape
@@ -171,5 +200,7 @@ namespace PowerPoint
             get;
             set;
         }
+
+        private Vector2 _previousMousePosition;
     }
 }

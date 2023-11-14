@@ -26,7 +26,35 @@ namespace PowerPoint
             _canvas.MouseUp += _viewModel.HandleCanvasReleased;
             _canvas.MouseMove += _viewModel.HandleCanvasMoved;
             _canvas.Paint += HandleCanvasPaint;
+            KeyPreview = true;
+            KeyDown += OnDeleteKeyDown;
             Controls.Add(_canvas);
+
+            _bitmap = new Bitmap(_canvas.Width, _canvas.Height);
+            UpdatePreview();
+        }
+
+        /// <summary>
+        /// update
+        /// </summary>
+        private void UpdatePreview()
+        {
+            _canvas.DrawToBitmap(_bitmap, new System.Drawing.Rectangle(0, 0, _canvas.Width, _canvas.Height));
+            _preview.Image = new Bitmap(_bitmap, _preview.Size);
+        }
+
+        /// <summary>
+        /// delete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnDeleteKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                _viewModel.DeleteSelected();
+            }
+
         }
 
         /// <summary>
@@ -80,6 +108,7 @@ namespace PowerPoint
             _viewModel.Draw(e.Graphics);
 
             UpdateToolbar();
+            UpdatePreview();
         }
 
         /// <summary>
@@ -117,5 +146,7 @@ namespace PowerPoint
         }
 
         private readonly ViewModel _viewModel;
+
+        private Bitmap _bitmap;
     }
 }

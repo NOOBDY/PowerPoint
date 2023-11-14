@@ -34,20 +34,22 @@ namespace PowerPoint
             this._delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this._groupBox1 = new System.Windows.Forms.GroupBox();
             this._comboBox1 = new System.Windows.Forms.ComboBox();
-            this._button1 = new System.Windows.Forms.Button();
+            this._addButton = new System.Windows.Forms.Button();
             this._menuStrip1 = new System.Windows.Forms.MenuStrip();
             this._toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this._aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._groupBox2 = new System.Windows.Forms.GroupBox();
+            this._preview = new System.Windows.Forms.Button();
             this._toolStrip1 = new System.Windows.Forms.ToolStrip();
             this._toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this._toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this._toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this._canvas = new PowerPoint.Canvas();
             this._toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this._canvas = new PowerPoint.Canvas();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView1)).BeginInit();
             this._groupBox1.SuspendLayout();
             this._menuStrip1.SuspendLayout();
+            this._groupBox2.SuspendLayout();
             this._toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +87,7 @@ namespace PowerPoint
             // 
             this._groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this._groupBox1.Controls.Add(this._comboBox1);
-            this._groupBox1.Controls.Add(this._button1);
+            this._groupBox1.Controls.Add(this._addButton);
             this._groupBox1.Controls.Add(this._dataGridView1);
             this._groupBox1.Location = new System.Drawing.Point(880, 62);
             this._groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -100,21 +102,21 @@ namespace PowerPoint
             this._comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._comboBox1.FormattingEnabled = true;
             this._comboBox1.Location = new System.Drawing.Point(160, 38);
-            this._comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this._comboBox1.Name = "_comboBox1";
             this._comboBox1.Size = new System.Drawing.Size(160, 24);
             this._comboBox1.TabIndex = 2;
             // 
-            // _button1
+            // _addButton
             // 
-            this._button1.Location = new System.Drawing.Point(23, 38);
-            this._button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this._button1.Name = "_button1";
-            this._button1.Size = new System.Drawing.Size(100, 28);
-            this._button1.TabIndex = 1;
-            this._button1.Text = "Add";
-            this._button1.UseVisualStyleBackColor = true;
-            this._button1.Click += new System.EventHandler(this.Button1Click);
+            this._addButton.Location = new System.Drawing.Point(23, 38);
+            this._addButton.Margin = new System.Windows.Forms.Padding(4);
+            this._addButton.Name = "_addButton";
+            this._addButton.Size = new System.Drawing.Size(100, 28);
+            this._addButton.TabIndex = 1;
+            this._addButton.Text = "Add";
+            this._addButton.UseVisualStyleBackColor = true;
+            this._addButton.Click += new System.EventHandler(this.Button1Click);
             // 
             // _menuStrip1
             // 
@@ -144,13 +146,22 @@ namespace PowerPoint
             // _groupBox2
             // 
             this._groupBox2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this._groupBox2.Controls.Add(this._preview);
             this._groupBox2.Location = new System.Drawing.Point(0, 62);
-            this._groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this._groupBox2.Name = "_groupBox2";
-            this._groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this._groupBox2.Size = new System.Drawing.Size(267, 642);
             this._groupBox2.TabIndex = 3;
             this._groupBox2.TabStop = false;
+            // 
+            // _preview
+            // 
+            this._preview.Location = new System.Drawing.Point(7, 13);
+            this._preview.Name = "_preview";
+            this._preview.Size = new System.Drawing.Size(253, 169);
+            this._preview.TabIndex = 0;
+            this._preview.UseVisualStyleBackColor = true;
             // 
             // _toolStrip1
             // 
@@ -193,15 +204,6 @@ namespace PowerPoint
             this._toolStripButton3.Size = new System.Drawing.Size(29, 24);
             this._toolStripButton3.Text = "_toolStripButton3";
             // 
-            // _canvas
-            // 
-            this._canvas.BackColor = System.Drawing.SystemColors.Info;
-            this._canvas.Location = new System.Drawing.Point(276, 65);
-            this._canvas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this._canvas.Name = "_canvas";
-            this._canvas.Size = new System.Drawing.Size(597, 602);
-            this._canvas.TabIndex = 5;
-            // 
             // _toolStripButton4
             // 
             this._toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -210,6 +212,15 @@ namespace PowerPoint
             this._toolStripButton4.Name = "_toolStripButton4";
             this._toolStripButton4.Size = new System.Drawing.Size(29, 24);
             this._toolStripButton4.Text = "_toolStripButton4";
+            // 
+            // _canvas
+            // 
+            this._canvas.BackColor = System.Drawing.SystemColors.Info;
+            this._canvas.Location = new System.Drawing.Point(276, 65);
+            this._canvas.Margin = new System.Windows.Forms.Padding(4);
+            this._canvas.Name = "_canvas";
+            this._canvas.Size = new System.Drawing.Size(597, 602);
+            this._canvas.TabIndex = 5;
             // 
             // Form1
             // 
@@ -228,6 +239,7 @@ namespace PowerPoint
             this._groupBox1.ResumeLayout(false);
             this._menuStrip1.ResumeLayout(false);
             this._menuStrip1.PerformLayout();
+            this._groupBox2.ResumeLayout(false);
             this._toolStrip1.ResumeLayout(false);
             this._toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -243,7 +255,7 @@ namespace PowerPoint
         private System.Windows.Forms.ToolStripMenuItem _toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem _aboutToolStripMenuItem;
         private System.Windows.Forms.ComboBox _comboBox1;
-        private System.Windows.Forms.Button _button1;
+        private System.Windows.Forms.Button _addButton;
         private System.Windows.Forms.GroupBox _groupBox2;
         private System.Windows.Forms.DataGridViewButtonColumn _delete;
         private System.Windows.Forms.ToolStrip _toolStrip1;
@@ -252,6 +264,7 @@ namespace PowerPoint
         private System.Windows.Forms.ToolStripButton _toolStripButton3;
         private Canvas _canvas;
         private System.Windows.Forms.ToolStripButton _toolStripButton4;
+        private System.Windows.Forms.Button _preview;
     }
 }
 

@@ -49,7 +49,9 @@
     <Compile Include="Canvas.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Mode.cs" />
+    <Compile Include="Mode\DrawMode.cs" />
+    <Compile Include="Mode\SelectMode.cs" />
+    <Compile Include="Mode\IMode.cs" />
     <Compile Include="Ellipse.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="ShapeType.cs" />
@@ -91,5 +93,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

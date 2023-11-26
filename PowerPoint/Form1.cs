@@ -62,10 +62,10 @@ namespace PowerPoint
         /// </summary>
         public void UpdateToolbar()
         {
-            _toolStripButton1.Checked = _viewModel.CurrentMode == Mode.Draw && _viewModel.SelectedShape == ShapeType.Line;
-            _toolStripButton2.Checked = _viewModel.CurrentMode == Mode.Draw && _viewModel.SelectedShape == ShapeType.Rectangle;
-            _toolStripButton3.Checked = _viewModel.CurrentMode == Mode.Draw && _viewModel.SelectedShape == ShapeType.Ellipse;
-            _toolStripButton4.Checked = _viewModel.CurrentMode == Mode.Select;
+            _toolStripButton1.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw && _viewModel.SelectedShape == ShapeType.Line;
+            _toolStripButton2.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw && _viewModel.SelectedShape == ShapeType.Rectangle;
+            _toolStripButton3.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw && _viewModel.SelectedShape == ShapeType.Ellipse;
+            _toolStripButton4.Checked = _viewModel.GetMode() == ViewModel.Mode.Select;
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace PowerPoint
         {
             return (sender, e) =>
             {
-                _viewModel.CurrentMode = Mode.Draw;
+                _viewModel.SetMode(ViewModel.Mode.Draw);
                 _viewModel.SelectedShape = shapeType;
 
                 UpdateToolbar();
@@ -92,8 +92,7 @@ namespace PowerPoint
         {
             return (sender, e) =>
             {
-                _viewModel.CurrentMode = Mode.Select;
-
+                _viewModel.SetMode(ViewModel.Mode.Select);
                 UpdateToolbar();
             };
         }

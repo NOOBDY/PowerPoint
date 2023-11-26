@@ -268,6 +268,22 @@
             </Smell>
             <Smell>
               <Id>6</Id>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.SelectMode.MouseDrag.23object sender;MouseEventArgs e;</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>23</Weight>
+              <Project>PowerPoint</Project>
+              <File>SelectMode.cs</File>
+              <Line>40</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
               <SmellType>Unsuitable naming(名不符實)-x(x)</SmellType>
               <HashCode>UnsuitableNaming.Rectangle.Draw.x</HashCode>
               <Severity>Warning</Severity>
@@ -283,7 +299,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>7</Id>
+              <Id>8</Id>
               <SmellType>Unsuitable naming(名不符實)-y(y)</SmellType>
               <HashCode>UnsuitableNaming.Rectangle.Draw.y</HashCode>
               <Severity>Warning</Severity>
@@ -291,22 +307,6 @@
               <Project>PowerPoint</Project>
               <File>Rectangle.cs</File>
               <Line>22</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>8</Id>
-              <SmellType>Literal constants(字面常數)-10</SmellType>
-              <HashCode>LiteralConstants.ShowSelectedPreview.10</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>30</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -540,118 +540,6 @@
             </Smell>
             <Smell>
               <Id>23</Id>
-              <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.ViewModel.HandleCanvasPressed.23object sender;MouseEventArgs e;</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>23</Weight>
-              <Project>PowerPoint</Project>
-              <File>ViewModel.cs</File>
-              <Line>100</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>24</Id>
-              <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.ViewModel.HandleCanvasMoved.31object sender;MouseEventArgs e;</HashCode>
-              <Severity>Red</Severity>
-              <Weight>31</Weight>
-              <Project>PowerPoint</Project>
-              <File>ViewModel.cs</File>
-              <Line>129</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>25</Id>
-              <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.ViewModel.HandleCanvasReleased.21object sender;MouseEventArgs e;</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>21</Weight>
-              <Project>PowerPoint</Project>
-              <File>ViewModel.cs</File>
-              <Line>166</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>26</Id>
-              <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.ViewModel.CurrentMode</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>ViewModel.cs</File>
-              <Line>190</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>27</Id>
-              <SmellType>ICS(類別宣告-1)</SmellType>
-              <HashCode>ClassDeclaration1.ViewModel.CurrentMode</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>ViewModel.cs</File>
-              <Line>190</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>28</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>92 目前物件 PowerPoint.ViewModel，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\ViewModel.cs</File>
-              <Line>92</Line>
-              <StartLine>90</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>92</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.ViewModel，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>29</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>142 目前物件 PowerPoint.ViewModel，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\ViewModel.cs</File>
-              <Line>142</Line>
-              <StartLine>142</StartLine>
-              <StartCol>20</StartCol>
-              <EndLine>142</EndLine>
-              <EndCol>108</EndCol>
-              <Comment>目前物件 PowerPoint.ViewModel，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>30</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>25 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
               <Severity>Warning</Severity>
@@ -667,7 +555,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>31</Id>
+              <Id>24</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>26 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
@@ -683,7 +571,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>32</Id>
+              <Id>25</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>32 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：1次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
@@ -699,7 +587,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>33</Id>
+              <Id>26</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>34 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：1次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
               <Severity>Warning</Severity>
@@ -715,7 +603,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>34</Id>
+              <Id>27</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>36 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：1次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
@@ -731,7 +619,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>35</Id>
+              <Id>28</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>38 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：1次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
               <Severity>Warning</Severity>
@@ -747,7 +635,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>36</Id>
+              <Id>29</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>56 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
@@ -763,7 +651,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>37</Id>
+              <Id>30</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>24 目前物件 PowerPoint.Ellipse，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
               <Severity>Warning</Severity>
@@ -779,7 +667,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>38</Id>
+              <Id>31</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>25 目前物件 PowerPoint.Ellipse，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
@@ -795,7 +683,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>39</Id>
+              <Id>32</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>22 目前物件 PowerPoint.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
               <Severity>Warning</Severity>
@@ -811,7 +699,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>40</Id>
+              <Id>33</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>23 目前物件 PowerPoint.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
@@ -827,9 +715,9 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>41</Id>
+              <Id>34</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>65 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.CurrentMode 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
+              <HashCode>65 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
@@ -839,13 +727,13 @@
               <StartCol>0</StartCol>
               <EndLine>65</EndLine>
               <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.CurrentMode 以及 PowerPoint.ViewModel.SelectedShape</Comment>
+              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>42</Id>
+              <Id>35</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>66 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.CurrentMode 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
+              <HashCode>66 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
@@ -855,13 +743,13 @@
               <StartCol>0</StartCol>
               <EndLine>66</EndLine>
               <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.CurrentMode 以及 PowerPoint.ViewModel.SelectedShape</Comment>
+              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>43</Id>
+              <Id>36</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>67 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.CurrentMode 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
+              <HashCode>67 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
@@ -871,7 +759,23 @@
               <StartCol>0</StartCol>
               <EndLine>67</EndLine>
               <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.CurrentMode 以及 PowerPoint.ViewModel.SelectedShape</Comment>
+              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>37</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>50 目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel._previousMousePosition 以及 PowerPoint.ViewModel._previousMousePosition</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Mode\SelectMode.cs</File>
+              <Line>50</Line>
+              <StartLine>48</StartLine>
+              <StartCol>20</StartCol>
+              <EndLine>50</EndLine>
+              <EndCol>62</EndCol>
+              <Comment>目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel._previousMousePosition 以及 PowerPoint.ViewModel._previousMousePosition</Comment>
               <Auto>false</Auto>
             </Smell>
           </Reviews>
@@ -907,7 +811,17 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Mode.cs</RelativePath>
+                <RelativePath>Mode\DrawMode.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mode\IMode.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mode\SelectMode.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -963,7 +877,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>967</ProductionLoc>
+          <ProductionLoc>1127</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

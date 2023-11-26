@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace PowerPoint
 {
-    public class ViewModel
+    public partial class ViewModel
     {
         public event ModelChangedEventHandler _modelChanged;
         public delegate void ModelChangedEventHandler();
@@ -14,6 +14,9 @@ namespace PowerPoint
         public ViewModel()
         {
             Shapes = new BindingList<Shape>();
+            _selectMode = new SelectMode(this);
+            _drawMode = new DrawMode(this);
+            _currentMode = _selectMode;
         }
 
         /// <summary>
@@ -76,23 +79,6 @@ namespace PowerPoint
         }
 
         /// <summary>
-        /// range
-        /// </summary>
-        /// <param name="point1"></param>
-        /// <param name="point2"></param>
-        /// <param name="target"></param>
-        /// <returns></returns>
-        private bool IsInRange(Vector2 point1, Vector2 point2, Vector2 target)
-        {
-            var xMin = Math.Min(point1.X, point2.X);
-            var xMax = Math.Max(point1.X, point2.X);
-            var yMin = Math.Min(point1.Y, point2.Y);
-            var yMax = Math.Max(point1.Y, point2.Y);
-
-            return (xMin < target.X && target.X < xMax) && (yMin < target.Y && target.Y < yMax);
-        }
-
-        /// <summary>
         /// pressed
         /// </summary>
         /// <param name="sender"></param>
@@ -102,23 +88,7 @@ namespace PowerPoint
             _isPressed = true;
             _previousMousePosition = new Vector2(e.X, e.Y);
 
-            if (CurrentMode == Mode.Select)
-            {
-                foreach (var s in Shapes)
-                {
-                    s._selected = IsInRange(s._point1, s._point2, _previousMousePosition);
-                }
-
-                NotifyModelChanged();
-                return;
-            }
-
-            _previewShape = ShapeFactory.CreateShape
-            (
-                SelectedShape,
-                new Vector2(e.X, e.Y),
-                new Vector2(e.X, e.Y)
-            );
+            _currentMode.MouseDown(sender, e);
         }
 
         /// <summary>
@@ -131,31 +101,7 @@ namespace PowerPoint
             if (!_isPressed)
                 return;
 
-            if (CurrentMode == Mode.Select)
-            {
-                var selectedShape = Shapes.FirstOrDefault(
-                    s => IsInRange(s._point1, s._point2, new Vector2(e.X, e.Y))
-                );
-
-                if (selectedShape == null)
-                    return;
-
-                var mouseDelta = new Vector2(e.X - _previousMousePosition.X, e.Y - _previousMousePosition.Y);
-                _previousMousePosition.X = e.X;
-                _previousMousePosition.Y = e.Y;
-
-                selectedShape._point1.X += mouseDelta.X;
-                selectedShape._point1.Y += mouseDelta.Y;
-                selectedShape._point2.X += mouseDelta.X;
-                selectedShape._point2.Y += mouseDelta.Y;
-
-                NotifyModelChanged();
-                return;
-            }
-
-            _previewShape._point2.X = e.X;
-            _previewShape._point2.Y = e.Y;
-            NotifyModelChanged();
+            _currentMode.MouseDrag(sender, e);
         }
 
         /// <summary>
@@ -170,24 +116,55 @@ namespace PowerPoint
 
             _isPressed = false;
 
-            if (CurrentMode == Mode.Select)
+            _currentMode.MouseUp(sender, e);
+        }
+
+        /// <summary>
+        /// set
+        /// </summary>
+        /// <param name="mode"></param>
+        public void SetMode(Mode mode)
+        {
+            switch (mode)
             {
-                return;
+                case Mode.Draw:
+                    _currentMode = _drawMode;
+                    break;
+
+                case Mode.Select:
+                    _currentMode = _selectMode;
+                    break;
             }
+        }
 
-            _previewShape._point2.X = e.X;
-            _previewShape._point2.Y = e.Y;
-            Shapes.Add(ShapeFactory.CreateShape(SelectedShape, _previewShape._point1, _previewShape._point2));
-
-            _previewShape = null;
-            CurrentMode = Mode.Select;
-
-            NotifyModelChanged();
+        /// <summary>
+        /// get
+        /// </summary>
+        /// <returns></returns>
+        public Mode GetMode()
+        {
+            switch (_currentMode.GetType().Name)
+            {
+                case nameof(SelectMode):
+                    return Mode.Select;
+                case nameof(DrawMode):
+                    return Mode.Draw;
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         private Shape _previewShape;
         private bool _isPressed;
-        public Mode CurrentMode;
+
+        public enum Mode
+        {
+            Select,
+            Draw
+        }
+        private IMode _currentMode;
+        private SelectMode _selectMode;
+        private DrawMode _drawMode;
 
         public BindingList<Shape> Shapes
         {

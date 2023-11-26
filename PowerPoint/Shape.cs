@@ -27,15 +27,15 @@ namespace PowerPoint
             var height = Math.Abs(_point1.Y - _point2.Y);
             graphics.DrawRectangle(Pens.Red, x, y, width, height);
 
-            var radius = 10;
-            DrawEllipseByCenterAndRadius(graphics, _point1, radius);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point1.X, (_point1.Y + _point2.Y) / 2), radius);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point1.X, _point2.Y), radius);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2((_point1.X + _point2.X) / 2, _point2.Y), radius);
-            DrawEllipseByCenterAndRadius(graphics, _point2, radius);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point2.X, (_point1.Y + _point2.Y) / 2), radius);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point2.X, _point1.Y), radius);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2((_point1.X + _point2.X) / 2, _point1.Y), radius);
+            const int RADIUS = 10;
+            DrawEllipseByCenterAndRadius(graphics, _point1, RADIUS);
+            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point1.X, (_point1.Y + _point2.Y) / 2), RADIUS);
+            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point1.X, _point2.Y), RADIUS);
+            DrawEllipseByCenterAndRadius(graphics, new Vector2((_point1.X + _point2.X) / 2, _point2.Y), RADIUS);
+            DrawEllipseByCenterAndRadius(graphics, _point2, RADIUS);
+            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point2.X, (_point1.Y + _point2.Y) / 2), RADIUS);
+            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point2.X, _point1.Y), RADIUS);
+            DrawEllipseByCenterAndRadius(graphics, new Vector2((_point1.X + _point2.X) / 2, _point1.Y), RADIUS);
         }
 
         /// <summary>

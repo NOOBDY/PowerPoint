@@ -19,7 +19,7 @@ namespace PowerPoint
         /// <summary>
         /// show
         /// </summary>
-        protected virtual void ShowSelectedPreview(Graphics graphics)
+        protected virtual void ShowSelectedPreview(IGraphics graphics)
         {
             var x = Math.Min(_point1.X, _point2.X);
             var y = Math.Min(_point1.Y, _point2.Y);
@@ -45,7 +45,7 @@ namespace PowerPoint
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="radius"></param>
-        private void DrawEllipseByCenterAndRadius(Graphics graphics, Vector2 point, float radius)
+        private void DrawEllipseByCenterAndRadius(IGraphics graphics, Vector2 point, float radius)
         {
             graphics.DrawEllipse(
                 Pens.Black,
@@ -60,7 +60,7 @@ namespace PowerPoint
         /// draw
         /// </summary>
         /// <param name="graphics"></param>
-        public abstract void Draw(Graphics graphics);
+        public abstract void Draw(IGraphics graphics);
 
         public Vector2 _point1;
         public Vector2 _point2;

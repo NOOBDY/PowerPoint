@@ -9,7 +9,7 @@ namespace PowerPoint
 {
     public partial class ViewModel
     {
-        class SelectMode : IMode
+        public class SelectMode : IMode
         {
             public SelectMode(ViewModel parent)
             {

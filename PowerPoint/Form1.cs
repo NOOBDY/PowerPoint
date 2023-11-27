@@ -104,7 +104,8 @@ namespace PowerPoint
         /// <param name="e"></param>
         private void HandleCanvasPaint(object sender, PaintEventArgs e)
         {
-            _viewModel.Draw(e.Graphics);
+            var adapter= new GraphicsAdapter(e.Graphics);
+            _viewModel.Draw(adapter);
 
             UpdateToolbar();
             UpdatePreview();
@@ -121,8 +122,8 @@ namespace PowerPoint
             const int LOWER_BOUND = 50;
             const int UPPER_BOUND = 400;
 
-            var point1 = new Vector2();
-            var point2 = new Vector2();
+            var point1 = new Vector2(0, 0);
+            var point2 = new Vector2(0, 0);
             point1.X = random.Next(LOWER_BOUND, UPPER_BOUND);
             point1.Y = random.Next(LOWER_BOUND, UPPER_BOUND);
             point2.X = random.Next(LOWER_BOUND, UPPER_BOUND);

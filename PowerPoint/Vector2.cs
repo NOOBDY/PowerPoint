@@ -2,7 +2,7 @@
 
 namespace PowerPoint
 {
-    public struct Vector2
+    public class Vector2
     {
         public Vector2(int x, int y)
         {

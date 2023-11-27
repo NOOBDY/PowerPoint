@@ -49,6 +49,8 @@
     <Compile Include="Canvas.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GraphicsAdapter.cs" />
+    <Compile Include="IGraphics.cs" />
     <Compile Include="Mode\DrawMode.cs" />
     <Compile Include="Mode\SelectMode.cs" />
     <Compile Include="Mode\IMode.cs" />

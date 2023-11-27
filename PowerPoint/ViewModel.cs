@@ -23,7 +23,7 @@ namespace PowerPoint
         /// draw
         /// </summary>
         /// <param name="graphics"></param>
-        public void Draw(Graphics graphics)
+        public void Draw(IGraphics graphics)
         {
             foreach (var shape in Shapes)
             {
@@ -163,8 +163,8 @@ namespace PowerPoint
             Draw
         }
         private IMode _currentMode;
-        private SelectMode _selectMode;
-        private DrawMode _drawMode;
+        private readonly SelectMode _selectMode;
+        private readonly DrawMode _drawMode;
 
         public BindingList<Shape> Shapes
         {

@@ -23,12 +23,33 @@ namespace PowerPoint
             /// <param name="e"></param>
             public void MouseDown(object sender, MouseEventArgs e)
             {
-                foreach (var s in _viewModel.Shapes)
+                _resizing = -1;
+                var selectedShape = _viewModel.Shapes.FirstOrDefault(
+                    shape => shape._selected
+                );
+
+                if (selectedShape != null)
                 {
-                    s._selected = Vector2.IsInRange(
-                        s._point1, s._point2, _viewModel._previousMousePosition);
+                    _resizing = Array.FindIndex(selectedShape.Anchors, point => Vector2.IsInRadius(new Vector2(e.X, e.Y), RADIUS, point));
+
+                    selectedShape._selected =
+                        _resizing != -1 || Vector2.IsInRange(selectedShape._point1, selectedShape._point2, new Vector2(e.X, e.Y));
+                    _viewModel.NotifyModelChanged();
+                    return;
                 }
 
+                selectedShape = _viewModel.Shapes.FirstOrDefault(
+                    shape => Vector2.IsInRange(shape._point1, shape._point2, new Vector2(e.X, e.Y))
+                );
+
+                if (selectedShape == null)
+                {
+                    foreach (var shape in _viewModel.Shapes)
+                        shape._selected = false;
+                    return;
+                }
+
+                selectedShape._selected = true;
                 _viewModel.NotifyModelChanged();
             }
 
@@ -40,11 +61,12 @@ namespace PowerPoint
             public void MouseDrag(object sender, MouseEventArgs e)
             {
                 var selectedShape = _viewModel.Shapes.FirstOrDefault(
-                    s => Vector2.IsInRange(s._point1, s._point2, new Vector2(e.X, e.Y))
+                    shape => shape._selected
                 );
 
                 if (selectedShape == null)
                     return;
+
 
                 var mouseDelta = new Vector2(
                     e.X - _viewModel._previousMousePosition.X,
@@ -53,12 +75,76 @@ namespace PowerPoint
                 _viewModel._previousMousePosition.X = e.X;
                 _viewModel._previousMousePosition.Y = e.Y;
 
+                if (_resizing != -1)
+                {
+                    switch (_resizing)
+                    {
+                        case 0:
+                            selectedShape._point1.X += mouseDelta.X;
+                            selectedShape._point1.Y += mouseDelta.Y;
+                            break;
+                        case 1:
+                            selectedShape._point1.X += mouseDelta.X;
+                            break;
+                        case 2:
+                            selectedShape._point1.X += mouseDelta.X;
+                            selectedShape._point2.Y += mouseDelta.Y;
+                            break;
+                        case 3:
+                            selectedShape._point2.Y += mouseDelta.Y;
+                            break;
+                        case 4:
+                            selectedShape._point2.X += mouseDelta.X;
+                            selectedShape._point2.Y += mouseDelta.Y;
+                            break;
+                        case 5:
+                            selectedShape._point2.X += mouseDelta.X;
+                            break;
+                        case 6:
+                            selectedShape._point2.X += mouseDelta.X;
+                            selectedShape._point1.Y += mouseDelta.Y;
+                            break;
+                        case 7:
+                            selectedShape._point1.Y += mouseDelta.Y;
+                            break;
+                    }
+
+                    _viewModel.NotifyModelChanged();
+                    return;
+                }
+
                 selectedShape._point1.X += mouseDelta.X;
                 selectedShape._point1.Y += mouseDelta.Y;
                 selectedShape._point2.X += mouseDelta.X;
                 selectedShape._point2.Y += mouseDelta.Y;
 
                 _viewModel.NotifyModelChanged();
+            }
+
+            /// <summary>
+            /// resize
+            /// </summary>
+            /// <param name="x"></param>
+            /// <param name="y"></param>
+            /// <returns></returns>
+            private Func<Vector2, Vector2, Vector2> Resize(bool x, bool y)
+            {
+                return (selectedPoint, delta) =>
+                {
+                    var result = new Vector2(selectedPoint.X, selectedPoint.Y);
+
+                    if (x)
+                    {
+                        result.X += delta.X;
+                    }
+
+                    if (y)
+                    {
+                        result.Y += delta.Y;
+                    }
+
+                    return result;
+                };
             }
 
             /// <summary>
@@ -70,7 +156,9 @@ namespace PowerPoint
             {
             }
 
-            private ViewModel _viewModel;
+            private const int RADIUS = 5;
+            private readonly ViewModel _viewModel;
+            private int _resizing;
         }
     }
 }

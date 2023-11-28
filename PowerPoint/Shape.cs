@@ -14,6 +14,18 @@ namespace PowerPoint
         {
             _point1 = point1;
             _point2 = point2;
+
+            Anchors = new[]
+            {
+                _point1,
+                new Vector2(_point1.X, (_point1.Y + _point2.Y) / 2),
+                new Vector2(_point1.X, _point2.Y),
+                new Vector2((_point1.X + _point2.X) / 2, _point2.Y),
+                _point2,
+                new Vector2(_point2.X, (_point1.Y + _point2.Y) / 2),
+                new Vector2(_point2.X, _point1.Y),
+                new Vector2((_point1.X + _point2.X) / 2, _point1.Y),
+            };
         }
 
         /// <summary>
@@ -27,15 +39,24 @@ namespace PowerPoint
             var height = Math.Abs(_point1.Y - _point2.Y);
             graphics.DrawRectangle(Pens.Red, x, y, width, height);
 
-            const int RADIUS = 10;
-            DrawEllipseByCenterAndRadius(graphics, _point1, RADIUS);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point1.X, (_point1.Y + _point2.Y) / 2), RADIUS);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point1.X, _point2.Y), RADIUS);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2((_point1.X + _point2.X) / 2, _point2.Y), RADIUS);
-            DrawEllipseByCenterAndRadius(graphics, _point2, RADIUS);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point2.X, (_point1.Y + _point2.Y) / 2), RADIUS);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2(_point2.X, _point1.Y), RADIUS);
-            DrawEllipseByCenterAndRadius(graphics, new Vector2((_point1.X + _point2.X) / 2, _point1.Y), RADIUS);
+            const int DIAMETER = 10;
+
+            Anchors = new[]
+            {
+                _point1,
+                new Vector2(_point1.X, (_point1.Y + _point2.Y) / 2),
+                new Vector2(_point1.X, _point2.Y),
+                new Vector2((_point1.X + _point2.X) / 2, _point2.Y),
+                _point2,
+                new Vector2(_point2.X, (_point1.Y + _point2.Y) / 2),
+                new Vector2(_point2.X, _point1.Y),
+                new Vector2((_point1.X + _point2.X) / 2, _point1.Y),
+            };
+
+            foreach (var point in Anchors)
+            {
+                DrawEllipseByCenterAndRadius(graphics, point, DIAMETER);
+            }
         }
 
         /// <summary>
@@ -44,15 +65,15 @@ namespace PowerPoint
         /// <param name="graphics"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        /// <param name="radius"></param>
-        private void DrawEllipseByCenterAndRadius(IGraphics graphics, Vector2 point, float radius)
+        /// <param name="diameter"></param>
+        private void DrawEllipseByCenterAndRadius(IGraphics graphics, Vector2 point, float diameter)
         {
             graphics.DrawEllipse(
                 Pens.Black,
-                point.X - (radius / 2),
-                point.Y - (radius / 2),
-                radius,
-                radius
+                point.X - (diameter / 2),
+                point.Y - (diameter / 2),
+                diameter,
+                diameter
             );
         }
 
@@ -81,5 +102,11 @@ namespace PowerPoint
         }
 
         public bool _selected;
+
+        public Vector2[] Anchors
+        {
+            get;
+            private set;
+        }
     }
 }

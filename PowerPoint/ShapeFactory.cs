@@ -19,10 +19,10 @@ namespace PowerPoint
                     return new Rectangle(point1, point2);
                 case ShapeType.Line:
                     return new Line(point1, point2);
-                case ShapeType.Ellipse:
-                    return new Ellipse(point1, point2);
                 default:
-                    throw new NotImplementedException();
+                    return new Ellipse(point1, point2);
+                // default:
+                //     throw new NotImplementedException();
             }
         }
     }

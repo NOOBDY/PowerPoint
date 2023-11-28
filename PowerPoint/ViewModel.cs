@@ -147,10 +147,10 @@ namespace PowerPoint
             {
                 case nameof(SelectMode):
                     return Mode.Select;
-                case nameof(DrawMode):
-                    return Mode.Draw;
                 default:
-                    throw new NotImplementedException();
+                    return Mode.Draw;
+                // default:
+                //     throw new NotImplementedException();
             }
         }
 

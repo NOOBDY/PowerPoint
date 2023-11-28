@@ -49,9 +49,16 @@ namespace PowerPoint
             return (xMin < target.X && target.X < xMax) && (yMin < target.Y && target.Y < yMax);
         }
 
+        /// <summary>
+        /// radius
+        /// </summary>
+        /// <param name="center"></param>
+        /// <param name="radius"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public static bool IsInRadius(Vector2 center, float radius, Vector2 target)
         {
-            return Math.Pow(center.X - target.X, 2) + Math.Pow(center.Y - target.Y, 2) < Math.Pow(radius, 2);
+            return Math.Pow(center.X - target.X, 2) + Math.Pow(center.Y - target.Y, 2) <= Math.Pow(radius, 2);
         }
     }
 }

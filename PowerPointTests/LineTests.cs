@@ -12,13 +12,18 @@ namespace PowerPoint.Tests
     [TestClass()]
     public class LineTests
     {
+        /// <summary>
+        /// setup
+        /// </summary>
         [TestInitialize()]
         public void SetUp()
         {
             _line = new Line(new Vector2(0, 0), new Vector2(0, 0));
         }
 
-
+        /// <summary>
+        /// draw
+        /// </summary>
         [TestMethod()]
         public void DrawTest()
         {

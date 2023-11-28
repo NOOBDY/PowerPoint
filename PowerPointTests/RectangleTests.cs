@@ -12,12 +12,18 @@ namespace PowerPoint.Tests
     [TestClass()]
     public class RectangleTests
     {
+        /// <summary>
+        /// setup
+        /// </summary>
         [TestInitialize()]
         public void SetUp()
         {
             _rectangle = new Rectangle(new Vector2(0, 0), new Vector2(0, 0));
         }
 
+        /// <summary>
+        /// draw
+        /// </summary>
         [TestMethod()]
         public void DrawTest()
         {

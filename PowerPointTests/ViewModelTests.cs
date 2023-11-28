@@ -14,15 +14,21 @@ namespace PowerPoint.Tests
     [TestClass()]
     public class ViewModelTests
     {
+        /// <summary>
+        /// setup
+        /// </summary>
         [TestInitialize()]
         public void SetUp()
         {
             _viewModel = new ViewModel();
-            var shape = new Line(new Vector2(0, 0), new Vector2(10, 10));
+            var shape = new Rectangle(new Vector2(0, 0), new Vector2(100, 100));
             _viewModel.Add(shape);
             _viewModel._modelChanged += () => {};
         }
 
+        /// <summary>
+        /// view
+        /// </summary>
         [TestMethod()]
         public void ViewModelTest()
         {
@@ -30,6 +36,9 @@ namespace PowerPoint.Tests
             Assert.AreEqual(_viewModel.SelectedShape, ShapeType.Line);
         }
 
+        /// <summary>
+        /// draw
+        /// </summary>
         [TestMethod()]
         public void DrawTest()
         {
@@ -42,6 +51,9 @@ namespace PowerPoint.Tests
             _viewModel.Draw(graphicsMock);
         }
 
+        /// <summary>
+        /// add
+        /// </summary>
         [TestMethod()]
         public void AddTest()
         {
@@ -53,6 +65,9 @@ namespace PowerPoint.Tests
             Assert.AreEqual(_viewModel.Shapes.Count, length + 1);
         }
 
+        /// <summary>
+        /// remove
+        /// </summary>
         [TestMethod()]
         public void RemoveAtTest()
         {
@@ -60,6 +75,9 @@ namespace PowerPoint.Tests
             Assert.AreEqual(_viewModel.Shapes.Count, 0);
         }
 
+        /// <summary>
+        /// delete
+        /// </summary>
         [TestMethod()]
         public void DeleteSelectedTest()
         {
@@ -68,6 +86,9 @@ namespace PowerPoint.Tests
             Assert.AreEqual(_viewModel.Shapes.Count, 0);
         }
 
+        /// <summary>
+        /// handle
+        /// </summary>
         [TestMethod()]
         public void HandleCanvasPressedTest()
         {
@@ -76,6 +97,9 @@ namespace PowerPoint.Tests
             _viewModel.HandleCanvasPressed(null, eventMock);
         }
 
+        /// <summary>
+        /// handle
+        /// </summary>
         [TestMethod()]
         public void HandleCanvasMovedTest()
         {
@@ -99,6 +123,9 @@ namespace PowerPoint.Tests
             _viewModel.HandleCanvasMoved(null, eventMock2);
         }
 
+        /// <summary>
+        /// handle
+        /// </summary>
         [TestMethod()]
         public void HandleCanvasReleasedTest()
         {
@@ -117,6 +144,9 @@ namespace PowerPoint.Tests
             _viewModel.HandleCanvasReleased(null, eventMock);
         }
 
+        /// <summary>
+        /// mode
+        /// </summary>
         [TestMethod()]
         public void ModeTest()
         {
@@ -125,6 +155,43 @@ namespace PowerPoint.Tests
 
             _viewModel.SetMode(ViewModel.Mode.Select);
             Assert.AreEqual(_viewModel.GetMode(), ViewModel.Mode.Select);
+        }
+
+        /// <summary>
+        /// resize
+        /// </summary>
+        [TestMethod()]
+        public void ResizeTest()
+        {
+            _viewModel.SetMode(ViewModel.Mode.Select);
+
+            var select = new MouseEventArgs(MouseButtons.Left, 1, 50, 50, 0);
+            _viewModel.HandleCanvasPressed(null, select);
+
+            var eventMock = new MouseEventArgs(MouseButtons.Left, 1, 1, 1, 0);
+            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasMoved(null, eventMock);
+            eventMock = new MouseEventArgs(MouseButtons.Left, 1, 1, 50, 0);
+            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasMoved(null, eventMock);
+            eventMock = new MouseEventArgs(MouseButtons.Left, 1, 1, 99, 0);
+            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasMoved(null, eventMock);
+            eventMock = new MouseEventArgs(MouseButtons.Left, 1, 50, 99, 0);
+            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasMoved(null, eventMock);
+            eventMock = new MouseEventArgs(MouseButtons.Left, 1, 99, 99, 0);
+            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasMoved(null, eventMock);
+            eventMock = new MouseEventArgs(MouseButtons.Left, 1, 99, 50, 0);
+            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasMoved(null, eventMock);
+            eventMock = new MouseEventArgs(MouseButtons.Left, 1, 99, 1, 0);
+            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasMoved(null, eventMock);
+            eventMock = new MouseEventArgs(MouseButtons.Left, 1, 50, 1, 0);
+            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasMoved(null, eventMock);
         }
 
         private ViewModel _viewModel;

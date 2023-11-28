@@ -11,6 +11,9 @@ namespace PowerPoint.Tests
     [TestClass()]
     public class ShapeFactoryTests
     {
+        /// <summary>
+        /// shape
+        /// </summary>
         [TestMethod()]
         public void CreateShapeTest()
         {

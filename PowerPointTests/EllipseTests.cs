@@ -14,12 +14,18 @@ namespace PowerPoint.Tests
     [TestClass()]
     public class EllipseTests
     {
+        /// <summary>
+        /// setup
+        /// </summary>
         [TestInitialize()]
         public void SetUp()
         {
             _ellipse = new Ellipse(new Vector2(0, 0), new Vector2(0, 0));
         }
 
+        /// <summary>
+        /// draw
+        /// </summary>
         [TestMethod()]
         public void DrawTest()
         {

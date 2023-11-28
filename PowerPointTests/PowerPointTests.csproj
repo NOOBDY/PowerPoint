@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="EllipseTests.cs" />
     <Compile Include="Form1Tests.cs" />
+    <Compile Include="GraphicsAdapterTests.cs" />
     <Compile Include="GraphicsMock.cs" />
     <Compile Include="LineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

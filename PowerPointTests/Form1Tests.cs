@@ -11,16 +11,13 @@ namespace PowerPoint.Tests
     [TestClass()]
     public class Form1Tests
     {
+        /// <summary>
+        /// form
+        /// </summary>
         [TestMethod()]
         public void Form1Test()
         {
             var form = new Form1();
-        }
-
-        [TestMethod()]
-        public void UpdateToolbarTest()
-        {
-
         }
     }
 }

@@ -11,18 +11,18 @@ namespace PowerPoint.Tests
     [TestClass()]
     public class Vector2Tests
     {
-        [TestMethod()]
-        public void Vector2Test()
-        {
-
-        }
-
+        /// <summary>
+        /// string
+        /// </summary>
         [TestMethod()]
         public void ToStringTest()
         {
             Assert.AreEqual(new Vector2(0, 0).ToString(), "(0, 0)");
         }
 
+        /// <summary>
+        /// range
+        /// </summary>
         [TestMethod()]
         public void IsInRangeTest()
         {

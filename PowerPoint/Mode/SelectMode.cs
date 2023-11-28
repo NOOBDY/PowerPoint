@@ -24,23 +24,17 @@ namespace PowerPoint
             public void MouseDown(object sender, MouseEventArgs e)
             {
                 _resizing = -1;
-                var selectedShape = _viewModel.Shapes.FirstOrDefault(
-                    shape => shape._selected
-                );
+                var selectedShape = _viewModel.Shapes.FirstOrDefault(shape => shape._selected);
 
                 if (selectedShape != null)
                 {
                     _resizing = Array.FindIndex(selectedShape.Anchors, point => Vector2.IsInRadius(new Vector2(e.X, e.Y), RADIUS, point));
-
-                    selectedShape._selected =
-                        _resizing != -1 || Vector2.IsInRange(selectedShape._point1, selectedShape._point2, new Vector2(e.X, e.Y));
+                    selectedShape._selected = _resizing != -1 || Vector2.IsInRange(selectedShape._point1, selectedShape._point2, new Vector2(e.X, e.Y));
                     _viewModel.NotifyModelChanged();
                     return;
                 }
 
-                selectedShape = _viewModel.Shapes.FirstOrDefault(
-                    shape => Vector2.IsInRange(shape._point1, shape._point2, new Vector2(e.X, e.Y))
-                );
+                selectedShape = _viewModel.Shapes.FirstOrDefault(shape => Vector2.IsInRange(shape._point1, shape._point2, new Vector2(e.X, e.Y)));
 
                 if (selectedShape == null)
                 {
@@ -50,6 +44,7 @@ namespace PowerPoint
                 }
 
                 selectedShape._selected = true;
+
                 _viewModel.NotifyModelChanged();
             }
 
@@ -66,7 +61,6 @@ namespace PowerPoint
 
                 if (selectedShape == null)
                     return;
-
 
                 var mouseDelta = new Vector2(
                     e.X - _viewModel._previousMousePosition.X,
@@ -119,32 +113,6 @@ namespace PowerPoint
                 selectedShape._point2.Y += mouseDelta.Y;
 
                 _viewModel.NotifyModelChanged();
-            }
-
-            /// <summary>
-            /// resize
-            /// </summary>
-            /// <param name="x"></param>
-            /// <param name="y"></param>
-            /// <returns></returns>
-            private Func<Vector2, Vector2, Vector2> Resize(bool x, bool y)
-            {
-                return (selectedPoint, delta) =>
-                {
-                    var result = new Vector2(selectedPoint.X, selectedPoint.Y);
-
-                    if (x)
-                    {
-                        result.X += delta.X;
-                    }
-
-                    if (y)
-                    {
-                        result.Y += delta.Y;
-                    }
-
-                    return result;
-                };
             }
 
             /// <summary>

@@ -47,12 +47,16 @@ namespace PowerPoint
             this._toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this._toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this._toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this._groupBox3 = new System.Windows.Forms.GroupBox();
             this._canvas = new PowerPoint.Canvas();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView1)).BeginInit();
             this._groupBox1.SuspendLayout();
             this._menuStrip1.SuspendLayout();
             this._groupBox2.SuspendLayout();
             this._toolStrip1.SuspendLayout();
+            this._groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // _dataGridView1
@@ -61,16 +65,19 @@ namespace PowerPoint
             this._dataGridView1.AllowUserToDeleteRows = false;
             this._dataGridView1.AllowUserToResizeColumns = false;
             this._dataGridView1.AllowUserToResizeRows = false;
+            this._dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._delete});
-            this._dataGridView1.Location = new System.Drawing.Point(4, 77);
+            this._dataGridView1.Location = new System.Drawing.Point(17, 59);
             this._dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this._dataGridView1.Name = "_dataGridView1";
             this._dataGridView1.RowHeadersVisible = false;
             this._dataGridView1.RowHeadersWidth = 51;
             this._dataGridView1.RowTemplate.Height = 24;
-            this._dataGridView1.Size = new System.Drawing.Size(277, 550);
+            this._dataGridView1.Size = new System.Drawing.Size(196, 447);
             this._dataGridView1.TabIndex = 0;
             this._dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickDataGridView1CellContent);
             // 
@@ -91,28 +98,31 @@ namespace PowerPoint
             this._groupBox1.Controls.Add(this._comboBox1);
             this._groupBox1.Controls.Add(this._addButton);
             this._groupBox1.Controls.Add(this._dataGridView1);
-            this._groupBox1.Location = new System.Drawing.Point(660, 50);
+            this._groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this._groupBox1.Location = new System.Drawing.Point(726, 16);
             this._groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this._groupBox1.Name = "_groupBox1";
             this._groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this._groupBox1.Size = new System.Drawing.Size(286, 546);
+            this._groupBox1.Size = new System.Drawing.Size(217, 462);
             this._groupBox1.TabIndex = 1;
             this._groupBox1.TabStop = false;
             // 
             // _comboBox1
             // 
+            this._comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._comboBox1.FormattingEnabled = true;
             this._comboBox1.Location = new System.Drawing.Point(120, 31);
             this._comboBox1.Name = "_comboBox1";
-            this._comboBox1.Size = new System.Drawing.Size(121, 21);
+            this._comboBox1.Size = new System.Drawing.Size(92, 21);
             this._comboBox1.TabIndex = 2;
             // 
             // _addButton
             // 
             this._addButton.Location = new System.Drawing.Point(17, 31);
             this._addButton.Name = "_addButton";
-            this._addButton.Size = new System.Drawing.Size(75, 23);
+            this._addButton.Size = new System.Drawing.Size(97, 23);
             this._addButton.TabIndex = 1;
             this._addButton.Text = "Add";
             this._addButton.UseVisualStyleBackColor = true;
@@ -148,18 +158,21 @@ namespace PowerPoint
             // 
             this._groupBox2.BackColor = System.Drawing.SystemColors.ControlDark;
             this._groupBox2.Controls.Add(this._preview);
-            this._groupBox2.Location = new System.Drawing.Point(0, 50);
+            this._groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this._groupBox2.Location = new System.Drawing.Point(3, 16);
             this._groupBox2.Name = "_groupBox2";
-            this._groupBox2.Size = new System.Drawing.Size(200, 522);
+            this._groupBox2.Size = new System.Drawing.Size(204, 462);
             this._groupBox2.TabIndex = 3;
             this._groupBox2.TabStop = false;
             // 
             // _preview
             // 
+            this._preview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._preview.Location = new System.Drawing.Point(5, 11);
             this._preview.Margin = new System.Windows.Forms.Padding(2);
             this._preview.Name = "_preview";
-            this._preview.Size = new System.Drawing.Size(190, 137);
+            this._preview.Size = new System.Drawing.Size(194, 137);
             this._preview.TabIndex = 0;
             this._preview.UseVisualStyleBackColor = true;
             // 
@@ -235,23 +248,54 @@ namespace PowerPoint
             this._toolStripButton6.Text = "_toolStripButton6";
             this._toolStripButton6.Click += new System.EventHandler(this.ClickRedoButton);
             // 
+            // _groupBox3
+            // 
+            this._groupBox3.Controls.Add(this._canvas);
+            this._groupBox3.Controls.Add(this.splitter2);
+            this._groupBox3.Controls.Add(this.splitter1);
+            this._groupBox3.Controls.Add(this._groupBox2);
+            this._groupBox3.Controls.Add(this._groupBox1);
+            this._groupBox3.Location = new System.Drawing.Point(0, 54);
+            this._groupBox3.Name = "_groupBox3";
+            this._groupBox3.Size = new System.Drawing.Size(946, 481);
+            this._groupBox3.TabIndex = 6;
+            this._groupBox3.TabStop = false;
+            this._groupBox3.Text = "groupBox1";
+            // 
             // _canvas
             // 
             this._canvas.BackColor = System.Drawing.SystemColors.Info;
-            this._canvas.Location = new System.Drawing.Point(207, 53);
+            this._canvas.Location = new System.Drawing.Point(227, 96);
             this._canvas.Name = "_canvas";
-            this._canvas.Size = new System.Drawing.Size(448, 489);
+            this._canvas.Size = new System.Drawing.Size(160, 90);
             this._canvas.TabIndex = 5;
+            // 
+            // splitter2
+            // 
+            this.splitter2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter2.Location = new System.Drawing.Point(691, 16);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(35, 462);
+            this.splitter2.TabIndex = 7;
+            this.splitter2.TabStop = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.SystemColors.ControlText;
+            this.splitter1.Location = new System.Drawing.Point(207, 16);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(14, 462);
+            this.splitter1.TabIndex = 6;
+            this.splitter1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 547);
-            this.Controls.Add(this._canvas);
+            this.Controls.Add(this._groupBox3);
             this.Controls.Add(this._toolStrip1);
-            this.Controls.Add(this._groupBox2);
-            this.Controls.Add(this._groupBox1);
             this.Controls.Add(this._menuStrip1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
@@ -263,6 +307,7 @@ namespace PowerPoint
             this._groupBox2.ResumeLayout(false);
             this._toolStrip1.ResumeLayout(false);
             this._toolStrip1.PerformLayout();
+            this._groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,6 +333,9 @@ namespace PowerPoint
         private System.Windows.Forms.Button _preview;
         private System.Windows.Forms.ToolStripButton _toolStripButton5;
         private System.Windows.Forms.ToolStripButton _toolStripButton6;
+        private System.Windows.Forms.GroupBox _groupBox3;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Splitter splitter2;
     }
 }
 

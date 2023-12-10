@@ -32,7 +32,6 @@ namespace PowerPoint
             _canvas.Paint += HandleCanvasPaint;
             KeyPreview = true;
             KeyDown += OnKeyDown;
-            Controls.Add(_canvas);
 
             _bitmap = new Bitmap(_canvas.Width, _canvas.Height);
             UpdatePreview();

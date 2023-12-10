@@ -5,8 +5,14 @@ using System.Runtime.InteropServices;
 
 namespace PowerPoint
 {
-    public abstract class Shape
+    public abstract class Shape : ICloneable
     {
+        public Shape(Shape other)
+        {
+            _point1 = new Vector2(other._point1);
+            _point2 = new Vector2(other._point2);
+        }
+
         /// <summary>
         /// shape
         /// </summary>
@@ -63,8 +69,7 @@ namespace PowerPoint
         /// ellipse
         /// </summary>
         /// <param name="graphics"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="point"></param>
         /// <param name="diameter"></param>
         private void DrawEllipseByCenterAndRadius(IGraphics graphics, Vector2 point, float diameter)
         {
@@ -76,6 +81,12 @@ namespace PowerPoint
                 diameter
             );
         }
+
+        /// <summary>
+        /// type
+        /// </summary>
+        /// <returns></returns>
+        public abstract ShapeType GetShapeType();
 
         /// <summary>
         /// draw
@@ -107,6 +118,16 @@ namespace PowerPoint
         {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// clone
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            var newShape = ShapeFactory.CreateShape(GetShapeType(), new Vector2(_point1), new Vector2(_point2));
+            return newShape;
         }
     }
 }

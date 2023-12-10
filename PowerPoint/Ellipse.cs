@@ -15,6 +15,15 @@ namespace PowerPoint
         }
 
         /// <summary>
+        /// type
+        /// </summary>
+        /// <returns></returns>
+        public override ShapeType GetShapeType()
+        {
+            return ShapeType.Ellipse;
+        }
+
+        /// <summary>
         /// draw
         /// </summary>
         /// <param name="graphics"></param>

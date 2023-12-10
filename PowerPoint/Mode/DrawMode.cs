@@ -23,6 +23,7 @@ namespace PowerPoint
             /// <param name="e"></param>
             public void MouseDown(object sender, MouseEventArgs e)
             {
+                _viewModel.Action();
                 _viewModel._previewShape = ShapeFactory.CreateShape
                 (
                     _viewModel.SelectedShape,

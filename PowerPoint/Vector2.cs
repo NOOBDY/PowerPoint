@@ -4,6 +4,12 @@ namespace PowerPoint
 {
     public class Vector2
     {
+        public Vector2(Vector2 other)
+        {
+            X = other.X;
+            Y = other.Y;
+        }
+
         public Vector2(int x, int y)
         {
             X = x;

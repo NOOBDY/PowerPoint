@@ -34,6 +34,7 @@ namespace PowerPoint
                     return;
                 }
 
+                _viewModel.Action();
                 selectedShape = _viewModel.Shapes.FirstOrDefault(shape => Vector2.IsInRange(shape._point1, shape._point2, new Vector2(e.X, e.Y)));
 
                 if (selectedShape == null)

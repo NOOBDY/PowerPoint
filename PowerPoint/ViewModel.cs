@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
@@ -38,6 +40,46 @@ namespace PowerPoint
         }
 
         /// <summary>
+        /// action
+        /// </summary>
+        public void Action()
+        {
+            var newShapes = new BindingList<Shape>();
+            foreach (var s in Shapes)
+            {
+                newShapes.Add((Shape)s.Clone());
+            }
+            _undoStack.Push(newShapes);
+            _redoStack.Clear();
+        }
+
+        /// <summary>
+        /// undo
+        /// </summary>
+        public void Undo()
+        {
+            if (_undoStack.Count <= 0)
+                return;
+
+            _redoStack.Push(Shapes);
+            Shapes = _undoStack.Pop();
+            NotifyModelChanged();
+        }
+
+        /// <summary>
+        /// redo
+        /// </summary>
+        public void Redo()
+        {
+            if (_redoStack.Count <= 0)
+                return;
+
+            _undoStack.Push(Shapes);
+            Shapes = _redoStack.Pop();
+            NotifyModelChanged();
+        }
+
+        /// <summary>
         /// add
         /// </summary>
         /// <param name="shape"></param>
@@ -74,6 +116,10 @@ namespace PowerPoint
         public void DeleteSelected()
         {
             var index = Shapes.ToList().FindIndex(s => s._selected);
+            if (index == -1)
+                return;
+
+            Action();
             Shapes.RemoveAt(index);
             NotifyModelChanged();
         }
@@ -165,6 +211,9 @@ namespace PowerPoint
         private IMode _currentMode;
         private readonly SelectMode _selectMode;
         private readonly DrawMode _drawMode;
+
+        private readonly Stack<BindingList<Shape>> _undoStack = new Stack<BindingList<Shape>>();
+        private readonly Stack<BindingList<Shape>> _redoStack = new Stack<BindingList<Shape>>();
 
         public BindingList<Shape> Shapes
         {

@@ -14,7 +14,11 @@ namespace PowerPoint
             _comboBox1.DataSource = Enum.GetValues(typeof(ShapeType));
 
             _viewModel = new ViewModel();
-            _viewModel._modelChanged += () => Invalidate(true);
+            _viewModel._modelChanged += () =>
+            {
+                _dataGridView1.DataSource = _viewModel.Shapes;
+                Invalidate(true);
+            };
             _dataGridView1.DataSource = _viewModel.Shapes;
 
             _toolStripButton1.Click += new EventHandler(ClickToolStripButton(ShapeType.Line));
@@ -27,7 +31,7 @@ namespace PowerPoint
             _canvas.MouseMove += _viewModel.HandleCanvasMoved;
             _canvas.Paint += HandleCanvasPaint;
             KeyPreview = true;
-            KeyDown += OnDeleteKeyDown;
+            KeyDown += OnKeyDown;
             Controls.Add(_canvas);
 
             _bitmap = new Bitmap(_canvas.Width, _canvas.Height);
@@ -48,13 +52,20 @@ namespace PowerPoint
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnDeleteKeyDown(object sender, KeyEventArgs e)
+        private void OnKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
+            switch (e.KeyCode)
             {
-                _viewModel.DeleteSelected();
+                case Keys.Delete:
+                    _viewModel.DeleteSelected();
+                    break;
+                case Keys.H:
+                    _viewModel.Undo();
+                    break;
+                case Keys.L:
+                    _viewModel.Redo();
+                    break;
             }
-
         }
 
         /// <summary>
@@ -62,9 +73,12 @@ namespace PowerPoint
         /// </summary>
         public void UpdateToolbar()
         {
-            _toolStripButton1.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw && _viewModel.SelectedShape == ShapeType.Line;
-            _toolStripButton2.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw && _viewModel.SelectedShape == ShapeType.Rectangle;
-            _toolStripButton3.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw && _viewModel.SelectedShape == ShapeType.Ellipse;
+            _toolStripButton1.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw &&
+                                        _viewModel.SelectedShape == ShapeType.Line;
+            _toolStripButton2.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw &&
+                                        _viewModel.SelectedShape == ShapeType.Rectangle;
+            _toolStripButton3.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw &&
+                                        _viewModel.SelectedShape == ShapeType.Ellipse;
             _toolStripButton4.Checked = _viewModel.GetMode() == ViewModel.Mode.Select;
         }
 
@@ -104,7 +118,7 @@ namespace PowerPoint
         /// <param name="e"></param>
         private void HandleCanvasPaint(object sender, PaintEventArgs e)
         {
-            var adapter= new GraphicsAdapter(e.Graphics);
+            var adapter = new GraphicsAdapter(e.Graphics);
             _viewModel.Draw(adapter);
 
             UpdateToolbar();
@@ -117,7 +131,7 @@ namespace PowerPoint
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Button1Click(object sender, EventArgs e)
-        { 
+        {
             var random = new Random();
             const int LOWER_BOUND = 50;
             const int UPPER_BOUND = 400;
@@ -129,6 +143,7 @@ namespace PowerPoint
             point2.X = random.Next(LOWER_BOUND, UPPER_BOUND);
             point2.Y = random.Next(LOWER_BOUND, UPPER_BOUND);
 
+            _viewModel.Action();
             _viewModel.Add(ShapeFactory.CreateShape((ShapeType)_comboBox1.SelectedItem, point1, point2));
         }
 
@@ -141,6 +156,7 @@ namespace PowerPoint
         {
             if (e.ColumnIndex == 0)
             {
+                _viewModel.Action();
                 _viewModel.RemoveAt(e.RowIndex);
             }
         }
@@ -148,5 +164,25 @@ namespace PowerPoint
         private readonly ViewModel _viewModel;
 
         private Bitmap _bitmap;
+
+        /// <summary>
+        /// undo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClickUndoButton(object sender, EventArgs e)
+        {
+            _viewModel.Undo();
+        }
+
+        /// <summary>
+        /// redo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClickRedoButton(object sender, EventArgs e)
+        {
+            _viewModel.Redo();
+        }
     }
 }

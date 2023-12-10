@@ -194,7 +194,7 @@
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Ellipse.cs</File>
-              <Line>23</Line>
+              <Line>32</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -210,7 +210,7 @@
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Ellipse.cs</File>
-              <Line>24</Line>
+              <Line>33</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -220,29 +220,13 @@
             </Smell>
             <Smell>
               <Id>3</Id>
-              <SmellType>ICS(空白與空行-7)</SmellType>
-              <HashCode>SpacingAndNewLine7</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>107</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(空白與空行-7) 二元運算子的前面與後面各加一個空白</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>4</Id>
               <SmellType>ICS(函式-2)</SmellType>
-              <HashCode>Method2.Form1.OnDeleteKeyDown</HashCode>
+              <HashCode>Method2.Form1.OnKeyDown</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Form1.cs</File>
-              <Line>51</Line>
+              <Line>55</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -251,14 +235,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>5</Id>
+              <Id>4</Id>
               <SmellType>Unsuitable naming(名不符實)-UpdateToolbar(toolbar)</SmellType>
               <HashCode>UnsuitableNaming.Form1.UpdateToolbar.UpdateToolbar</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Form1.cs</File>
-              <Line>63</Line>
+              <Line>74</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -267,14 +251,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>6</Id>
+              <Id>5</Id>
               <SmellType>ICS(函式-3)</SmellType>
               <HashCode>Method3.Form1.ClickPointer</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Form1.cs</File>
-              <Line>91</Line>
+              <Line>105</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -283,7 +267,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>7</Id>
+              <Id>6</Id>
               <SmellType>Long parameter list(過長參數列)</SmellType>
               <HashCode>LongParameterList.GraphicsAdapter.DrawLine.Pen pen;float x1;float y1;float x2;float y2;</HashCode>
               <Severity>Warning</Severity>
@@ -299,7 +283,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>8</Id>
+              <Id>7</Id>
               <SmellType>Long parameter list(過長參數列)</SmellType>
               <HashCode>LongParameterList.GraphicsAdapter.DrawRectangle.Pen pen;float x1;float y1;float x2;float y2;</HashCode>
               <Severity>Warning</Severity>
@@ -315,7 +299,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>9</Id>
+              <Id>8</Id>
               <SmellType>Long parameter list(過長參數列)</SmellType>
               <HashCode>LongParameterList.GraphicsAdapter.DrawEllipse.Pen pen;float x1;float y1;float x2;float y2;</HashCode>
               <Severity>Warning</Severity>
@@ -331,7 +315,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>10</Id>
+              <Id>9</Id>
               <SmellType>Long parameter list(過長參數列)</SmellType>
               <HashCode>LongParameterList.IGraphics.DrawLine.Pen pen;float x1;float y1;float x2;float y2;</HashCode>
               <Severity>Warning</Severity>
@@ -347,7 +331,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>11</Id>
+              <Id>10</Id>
               <SmellType>Long parameter list(過長參數列)</SmellType>
               <HashCode>LongParameterList.IGraphics.DrawRectangle.Pen pen;float x1;float y1;float x2;float y2;</HashCode>
               <Severity>Warning</Severity>
@@ -363,7 +347,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>12</Id>
+              <Id>11</Id>
               <SmellType>Long parameter list(過長參數列)</SmellType>
               <HashCode>LongParameterList.IGraphics.DrawEllipse.Pen pen;float x1;float y1;float x2;float y2;</HashCode>
               <Severity>Warning</Severity>
@@ -379,30 +363,46 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>13</Id>
-              <SmellType>ICS(空白與空行-17)</SmellType>
-              <HashCode>SpacingAndNewLine17.SelectMode.cs.2.                    return;.                var mouseDelta = new Vector2(</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>SelectMode.cs</File>
-              <Line>69</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(空白與空行-17) 一次不加多個空行(若發生時，則指定在多個空行的第一行即可)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>14</Id>
+              <Id>12</Id>
               <SmellType>Literal constants(字面常數)-2</SmellType>
               <HashCode>LiteralConstants.MouseDrag.2</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>SelectMode.cs</File>
-              <Line>89</Line>
+              <Line>83</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>13</Id>
+              <SmellType>Literal constants(字面常數)-3</SmellType>
+              <HashCode>LiteralConstants.MouseDrag.3</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>SelectMode.cs</File>
+              <Line>87</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>14</Id>
+              <SmellType>Literal constants(字面常數)-4</SmellType>
+              <HashCode>LiteralConstants.MouseDrag.4</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>SelectMode.cs</File>
+              <Line>90</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -412,13 +412,13 @@
             </Smell>
             <Smell>
               <Id>15</Id>
-              <SmellType>Literal constants(字面常數)-3</SmellType>
-              <HashCode>LiteralConstants.MouseDrag.3</HashCode>
+              <SmellType>Literal constants(字面常數)-5</SmellType>
+              <HashCode>LiteralConstants.MouseDrag.5</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>SelectMode.cs</File>
-              <Line>93</Line>
+              <Line>94</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -428,13 +428,13 @@
             </Smell>
             <Smell>
               <Id>16</Id>
-              <SmellType>Literal constants(字面常數)-4</SmellType>
-              <HashCode>LiteralConstants.MouseDrag.4</HashCode>
+              <SmellType>Literal constants(字面常數)-6</SmellType>
+              <HashCode>LiteralConstants.MouseDrag.6</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>SelectMode.cs</File>
-              <Line>96</Line>
+              <Line>97</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -444,13 +444,13 @@
             </Smell>
             <Smell>
               <Id>17</Id>
-              <SmellType>Literal constants(字面常數)-5</SmellType>
-              <HashCode>LiteralConstants.MouseDrag.5</HashCode>
+              <SmellType>Literal constants(字面常數)-7</SmellType>
+              <HashCode>LiteralConstants.MouseDrag.7</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>SelectMode.cs</File>
-              <Line>100</Line>
+              <Line>101</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -460,42 +460,10 @@
             </Smell>
             <Smell>
               <Id>18</Id>
-              <SmellType>Literal constants(字面常數)-6</SmellType>
-              <HashCode>LiteralConstants.MouseDrag.6</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>SelectMode.cs</File>
-              <Line>103</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>19</Id>
-              <SmellType>Literal constants(字面常數)-7</SmellType>
-              <HashCode>LiteralConstants.MouseDrag.7</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>SelectMode.cs</File>
-              <Line>107</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>20</Id>
               <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.SelectMode.MouseDown.31object sender;MouseEventArgs e;</HashCode>
-              <Severity>Red</Severity>
-              <Weight>31</Weight>
+              <HashCode>LongMethod.SelectMode.MouseDown.26object sender;MouseEventArgs e;</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>26</Weight>
               <Project>PowerPoint</Project>
               <File>SelectMode.cs</File>
               <Line>24</Line>
@@ -507,14 +475,46 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>21</Id>
+              <Id>19</Id>
               <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.SelectMode.MouseDrag.62object sender;MouseEventArgs e;</HashCode>
+              <HashCode>LongMethod.SelectMode.MouseDrag.61object sender;MouseEventArgs e;</HashCode>
               <Severity>Red</Severity>
-              <Weight>62</Weight>
+              <Weight>61</Weight>
               <Project>PowerPoint</Project>
               <File>SelectMode.cs</File>
-              <Line>61</Line>
+              <Line>56</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>20</Id>
+              <SmellType>Unsuitable naming(名不符實)-x(x)</SmellType>
+              <HashCode>UnsuitableNaming.Rectangle.Draw.x</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Rectangle.cs</File>
+              <Line>30</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>21</Id>
+              <SmellType>Unsuitable naming(名不符實)-y(y)</SmellType>
+              <HashCode>UnsuitableNaming.Rectangle.Draw.y</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Rectangle.cs</File>
+              <Line>31</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -524,86 +524,6 @@
             </Smell>
             <Smell>
               <Id>22</Id>
-              <SmellType>Unsuitable naming(名不符實)-x(x)</SmellType>
-              <HashCode>UnsuitableNaming.Rectangle.Draw.x</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Rectangle.cs</File>
-              <Line>21</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>23</Id>
-              <SmellType>Unsuitable naming(名不符實)-y(y)</SmellType>
-              <HashCode>UnsuitableNaming.Rectangle.Draw.y</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Rectangle.cs</File>
-              <Line>22</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>24</Id>
-              <SmellType>Literal constants(字面常數)-2</SmellType>
-              <HashCode>LiteralConstants.Shape.2</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>21</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>25</Id>
-              <SmellType>Literal constants(字面常數)-2</SmellType>
-              <HashCode>LiteralConstants.Shape.2</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>23</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>26</Id>
-              <SmellType>Literal constants(字面常數)-2</SmellType>
-              <HashCode>LiteralConstants.Shape.2</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>25</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>27</Id>
               <SmellType>Literal constants(字面常數)-2</SmellType>
               <HashCode>LiteralConstants.Shape.2</HashCode>
               <Severity>Warning</Severity>
@@ -619,14 +539,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>28</Id>
+              <Id>23</Id>
               <SmellType>Literal constants(字面常數)-2</SmellType>
-              <HashCode>LiteralConstants.ShowSelectedPreview.2</HashCode>
+              <HashCode>LiteralConstants.Shape.2</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>47</Line>
+              <Line>29</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -635,14 +555,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>29</Id>
+              <Id>24</Id>
               <SmellType>Literal constants(字面常數)-2</SmellType>
-              <HashCode>LiteralConstants.ShowSelectedPreview.2</HashCode>
+              <HashCode>LiteralConstants.Shape.2</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>49</Line>
+              <Line>31</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -651,14 +571,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>30</Id>
+              <Id>25</Id>
               <SmellType>Literal constants(字面常數)-2</SmellType>
-              <HashCode>LiteralConstants.ShowSelectedPreview.2</HashCode>
+              <HashCode>LiteralConstants.Shape.2</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>51</Line>
+              <Line>33</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -667,7 +587,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>31</Id>
+              <Id>26</Id>
               <SmellType>Literal constants(字面常數)-2</SmellType>
               <HashCode>LiteralConstants.ShowSelectedPreview.2</HashCode>
               <Severity>Warning</Severity>
@@ -683,14 +603,94 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>32</Id>
+              <Id>27</Id>
+              <SmellType>Literal constants(字面常數)-2</SmellType>
+              <HashCode>LiteralConstants.ShowSelectedPreview.2</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>55</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>28</Id>
+              <SmellType>Literal constants(字面常數)-2</SmellType>
+              <HashCode>LiteralConstants.ShowSelectedPreview.2</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>57</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>29</Id>
+              <SmellType>Literal constants(字面常數)-2</SmellType>
+              <HashCode>LiteralConstants.ShowSelectedPreview.2</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>59</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>30</Id>
               <SmellType>Literal constants(字面常數)-2</SmellType>
               <HashCode>LiteralConstants.DrawEllipseByCenterAndRadius.2</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>73</Line>
+              <Line>79</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>31</Id>
+              <SmellType>Literal constants(字面常數)-2</SmellType>
+              <HashCode>LiteralConstants.DrawEllipseByCenterAndRadius.2</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>80</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>32</Id>
+              <SmellType>Unsuitable naming(名不符實)-x(x)</SmellType>
+              <HashCode>UnsuitableNaming.Shape.ShowSelectedPreview.x</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>42</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -700,13 +700,13 @@
             </Smell>
             <Smell>
               <Id>33</Id>
-              <SmellType>Literal constants(字面常數)-2</SmellType>
-              <HashCode>LiteralConstants.DrawEllipseByCenterAndRadius.2</HashCode>
+              <SmellType>Unsuitable naming(名不符實)-y(y)</SmellType>
+              <HashCode>UnsuitableNaming.Shape.ShowSelectedPreview.y</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>74</Line>
+              <Line>43</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -716,13 +716,13 @@
             </Smell>
             <Smell>
               <Id>34</Id>
-              <SmellType>Unsuitable naming(名不符實)-x(x)</SmellType>
-              <HashCode>UnsuitableNaming.Shape.ShowSelectedPreview.x</HashCode>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.Shape.ShowSelectedPreview.27IGraphics graphics;</HashCode>
               <Severity>Warning</Severity>
-              <Weight>1</Weight>
+              <Weight>27</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>36</Line>
+              <Line>40</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -732,45 +732,45 @@
             </Smell>
             <Smell>
               <Id>35</Id>
-              <SmellType>Unsuitable naming(名不符實)-y(y)</SmellType>
-              <HashCode>UnsuitableNaming.Shape.ShowSelectedPreview.y</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>37</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>36</Id>
-              <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.Shape.ShowSelectedPreview.27IGraphics graphics;</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>27</Weight>
-              <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>34</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>37</Id>
               <SmellType>ICS(類別宣告-1)</SmellType>
               <HashCode>ClassDeclaration1.Shape._point1</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>86</Line>
+              <Line>98</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>36</Id>
+              <SmellType>ICS(類別宣告-1)</SmellType>
+              <HashCode>ClassDeclaration1.Shape._point2</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>99</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>37</Id>
+              <SmellType>ICS(類別宣告-1)</SmellType>
+              <HashCode>ClassDeclaration1.Shape._selected</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>116</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -780,34 +780,34 @@
             </Smell>
             <Smell>
               <Id>38</Id>
-              <SmellType>ICS(類別宣告-1)</SmellType>
-              <HashCode>ClassDeclaration1.Shape._point2</HashCode>
-              <Severity>Red</Severity>
+              <SmellType>Literal constants(字面常數)-2</SmellType>
+              <HashCode>LiteralConstants.IsInRadius.2</HashCode>
+              <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>87</Line>
+              <File>Vector2.cs</File>
+              <Line>67</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
+              <Comment />
               <Auto>false</Auto>
             </Smell>
             <Smell>
               <Id>39</Id>
-              <SmellType>ICS(類別宣告-1)</SmellType>
-              <HashCode>ClassDeclaration1.Shape._selected</HashCode>
-              <Severity>Red</Severity>
+              <SmellType>Literal constants(字面常數)-2</SmellType>
+              <HashCode>LiteralConstants.IsInRadius.2</HashCode>
+              <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>104</Line>
+              <File>Vector2.cs</File>
+              <Line>67</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
+              <Comment />
               <Auto>false</Auto>
             </Smell>
             <Smell>
@@ -818,7 +818,7 @@
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Vector2.cs</File>
-              <Line>61</Line>
+              <Line>67</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -828,38 +828,6 @@
             </Smell>
             <Smell>
               <Id>41</Id>
-              <SmellType>Literal constants(字面常數)-2</SmellType>
-              <HashCode>LiteralConstants.IsInRadius.2</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Vector2.cs</File>
-              <Line>61</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>42</Id>
-              <SmellType>Literal constants(字面常數)-2</SmellType>
-              <HashCode>LiteralConstants.IsInRadius.2</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Vector2.cs</File>
-              <Line>61</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>43</Id>
               <SmellType>Unsuitable naming(名不符實)-Vector2(vector)</SmellType>
               <HashCode>UnsuitableNaming.PowerPoint.Vector2.Vector2</HashCode>
               <Severity>Red</Severity>
@@ -875,14 +843,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>44</Id>
+              <Id>42</Id>
               <SmellType>Unsuitable naming(名不符實)-x(x)</SmellType>
               <HashCode>UnsuitableNaming.Vector2.Vector2.x</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Vector2.cs</File>
-              <Line>7</Line>
+              <Line>13</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -891,14 +859,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>45</Id>
+              <Id>43</Id>
               <SmellType>Unsuitable naming(名不符實)-y(y)</SmellType>
               <HashCode>UnsuitableNaming.Vector2.Vector2.y</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Vector2.cs</File>
-              <Line>7</Line>
+              <Line>13</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -907,7 +875,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>46</Id>
+              <Id>44</Id>
               <SmellType>Long parameter list(過長參數列)</SmellType>
               <HashCode>LongParameterList.GraphicsMock.DrawLine.Pen pen;float x1;float y1;float x2;float y2;</HashCode>
               <Severity>Warning</Severity>
@@ -923,7 +891,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>47</Id>
+              <Id>45</Id>
               <SmellType>Long parameter list(過長參數列)</SmellType>
               <HashCode>LongParameterList.GraphicsMock.DrawRectangle.Pen pen;float x1;float y1;float x2;float y2;</HashCode>
               <Severity>Warning</Severity>
@@ -939,7 +907,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>48</Id>
+              <Id>46</Id>
               <SmellType>Long parameter list(過長參數列)</SmellType>
               <HashCode>LongParameterList.GraphicsMock.DrawEllipse.Pen pen;float x1;float y1;float x2;float y2;</HashCode>
               <Severity>Warning</Severity>
@@ -955,113 +923,145 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>49</Id>
+              <Id>47</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>37 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
+              <HashCode>43 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Shape.cs</File>
-              <Line>37</Line>
-              <StartLine>37</StartLine>
+              <Line>43</Line>
+              <StartLine>43</StartLine>
               <StartCol>16</StartCol>
-              <EndLine>37</EndLine>
+              <EndLine>43</EndLine>
               <EndCol>55</EndCol>
               <Comment>目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>50</Id>
+              <Id>48</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>38 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
+              <HashCode>44 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Shape.cs</File>
-              <Line>38</Line>
-              <StartLine>38</StartLine>
+              <Line>44</Line>
+              <StartLine>44</StartLine>
               <StartCol>16</StartCol>
-              <EndLine>38</EndLine>
+              <EndLine>44</EndLine>
               <EndCol>56</EndCol>
               <Comment>目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>51</Id>
+              <Id>49</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>54 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：2次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：8次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
+              <HashCode>60 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：2次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：8次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Shape.cs</File>
-              <Line>54</Line>
-              <StartLine>42</StartLine>
+              <Line>60</Line>
+              <StartLine>48</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>54</EndLine>
+              <EndLine>60</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：2次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：8次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>52</Id>
+              <Id>50</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>77 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y</HashCode>
+              <HashCode>83 目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Shape.cs</File>
-              <Line>77</Line>
-              <StartLine>70</StartLine>
+              <Line>83</Line>
+              <StartLine>76</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>77</EndLine>
+              <EndLine>83</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.Shape，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.Y</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>53</Id>
+              <Id>51</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>24 目前物件 PowerPoint.Ellipse，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
+              <HashCode>33 目前物件 PowerPoint.Ellipse，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Ellipse.cs</File>
-              <Line>24</Line>
-              <StartLine>24</StartLine>
+              <Line>33</Line>
+              <StartLine>33</StartLine>
               <StartCol>16</StartCol>
-              <EndLine>24</EndLine>
+              <EndLine>33</EndLine>
               <EndCol>55</EndCol>
               <Comment>目前物件 PowerPoint.Ellipse，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>54</Id>
+              <Id>52</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>25 目前物件 PowerPoint.Ellipse，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
+              <HashCode>34 目前物件 PowerPoint.Ellipse，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Ellipse.cs</File>
-              <Line>25</Line>
-              <StartLine>25</StartLine>
+              <Line>34</Line>
+              <StartLine>34</StartLine>
               <StartCol>16</StartCol>
-              <EndLine>25</EndLine>
+              <EndLine>34</EndLine>
               <EndCol>56</EndCol>
               <Comment>目前物件 PowerPoint.Ellipse，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
+              <Id>53</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>33 目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.NotifyModelChanged() 以及 PowerPoint.ViewModel.Shapes</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Mode\SelectMode.cs</File>
+              <Line>33</Line>
+              <StartLine>32</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>33</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.NotifyModelChanged() 以及 PowerPoint.ViewModel.Shapes</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>54</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>66 目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel._previousMousePosition 以及 PowerPoint.ViewModel._previousMousePosition</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Mode\SelectMode.cs</File>
+              <Line>66</Line>
+              <StartLine>64</StartLine>
+              <StartCol>20</StartCol>
+              <EndLine>66</EndLine>
+              <EndCol>62</EndCol>
+              <Comment>目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel._previousMousePosition 以及 PowerPoint.ViewModel._previousMousePosition</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
               <Id>55</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>22 目前物件 PowerPoint.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
+              <HashCode>31 目前物件 PowerPoint.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Rectangle.cs</File>
-              <Line>22</Line>
-              <StartLine>22</StartLine>
+              <Line>31</Line>
+              <StartLine>31</StartLine>
               <StartCol>16</StartCol>
-              <EndLine>22</EndLine>
+              <EndLine>31</EndLine>
               <EndCol>55</EndCol>
               <Comment>目前物件 PowerPoint.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.X 以及 PowerPoint.Vector2.X</Comment>
               <Auto>false</Auto>
@@ -1069,15 +1069,15 @@
             <Smell>
               <Id>56</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>23 目前物件 PowerPoint.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
+              <HashCode>32 目前物件 PowerPoint.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Rectangle.cs</File>
-              <Line>23</Line>
-              <StartLine>23</StartLine>
+              <Line>32</Line>
+              <StartLine>32</StartLine>
               <StartCol>16</StartCol>
-              <EndLine>23</EndLine>
+              <EndLine>32</EndLine>
               <EndCol>56</EndCol>
               <Comment>目前物件 PowerPoint.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Vector2，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Vector2.Y 以及 PowerPoint.Vector2.Y</Comment>
               <Auto>false</Auto>
@@ -1085,15 +1085,15 @@
             <Smell>
               <Id>57</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>65 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
+              <HashCode>77 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Form1.cs</File>
-              <Line>65</Line>
-              <StartLine>64</StartLine>
+              <Line>77</Line>
+              <StartLine>75</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>65</EndLine>
+              <EndLine>77</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</Comment>
               <Auto>false</Auto>
@@ -1101,15 +1101,15 @@
             <Smell>
               <Id>58</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>66 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
+              <HashCode>79 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Form1.cs</File>
-              <Line>66</Line>
-              <StartLine>65</StartLine>
+              <Line>79</Line>
+              <StartLine>77</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>66</EndLine>
+              <EndLine>79</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</Comment>
               <Auto>false</Auto>
@@ -1117,49 +1117,17 @@
             <Smell>
               <Id>59</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>67 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
+              <HashCode>81 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Form1.cs</File>
-              <Line>67</Line>
-              <StartLine>66</StartLine>
+              <Line>81</Line>
+              <StartLine>79</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>67</EndLine>
+              <EndLine>81</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.GetMode() 以及 PowerPoint.ViewModel.SelectedShape</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>60</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>37 目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.NotifyModelChanged() 以及 PowerPoint.ViewModel.Shapes</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Mode\SelectMode.cs</File>
-              <Line>37</Line>
-              <StartLine>36</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>37</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel.NotifyModelChanged() 以及 PowerPoint.ViewModel.Shapes</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>61</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>72 目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel._previousMousePosition 以及 PowerPoint.ViewModel._previousMousePosition</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\noobdy\Coding\PowerPoint\PowerPoint\Mode\SelectMode.cs</File>
-              <Line>72</Line>
-              <StartLine>70</StartLine>
-              <StartCol>20</StartCol>
-              <EndLine>72</EndLine>
-              <EndCol>62</EndCol>
-              <Comment>目前物件 PowerPoint.ViewModel.SelectMode，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.ViewModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ViewModel._previousMousePosition 以及 PowerPoint.ViewModel._previousMousePosition</Comment>
               <Auto>false</Auto>
             </Smell>
           </Reviews>
@@ -1280,6 +1248,11 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>GraphicsAdapterTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>GraphicsMock.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -1321,8 +1294,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1411</ProductionLoc>
-          <TestLoc>396</TestLoc>
+          <ProductionLoc>1526</ProductionLoc>
+          <TestLoc>486</TestLoc>
         </CodeReview>
       </Data>
     </div>

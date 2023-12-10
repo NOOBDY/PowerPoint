@@ -33,8 +33,11 @@ namespace PowerPoint
             KeyPreview = true;
             KeyDown += OnKeyDown;
 
+            _preview.SizeChanged += _canvas_SizeChanged;
+
             _bitmap = new Bitmap(_canvas.Width, _canvas.Height);
             UpdatePreview();
+            _canvas_SizeChanged(_canvas, null);
         }
 
         /// <summary>
@@ -182,6 +185,13 @@ namespace PowerPoint
         private void ClickRedoButton(object sender, EventArgs e)
         {
             _viewModel.Redo();
+        }
+
+        private void _canvas_SizeChanged(object sender, EventArgs e)
+        {
+            Control c = (Control)sender;
+            c.Size = new Size(c.Size.Width, c.Size.Width / 16 * 9);
+            UpdatePreview();
         }
     }
 }

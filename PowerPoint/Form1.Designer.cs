@@ -51,12 +51,14 @@ namespace PowerPoint
             this._canvas = new PowerPoint.Canvas();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView1)).BeginInit();
             this._groupBox1.SuspendLayout();
             this._menuStrip1.SuspendLayout();
             this._groupBox2.SuspendLayout();
             this._toolStrip1.SuspendLayout();
             this._groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // _dataGridView1
@@ -250,7 +252,7 @@ namespace PowerPoint
             // 
             // _groupBox3
             // 
-            this._groupBox3.Controls.Add(this._canvas);
+            this._groupBox3.Controls.Add(this.groupBox1);
             this._groupBox3.Controls.Add(this.splitter2);
             this._groupBox3.Controls.Add(this.splitter1);
             this._groupBox3.Controls.Add(this._groupBox2);
@@ -264,11 +266,14 @@ namespace PowerPoint
             // 
             // _canvas
             // 
+            this._canvas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this._canvas.AutoSize = true;
             this._canvas.BackColor = System.Drawing.SystemColors.Info;
-            this._canvas.Location = new System.Drawing.Point(227, 96);
+            this._canvas.Location = new System.Drawing.Point(6, 19);
             this._canvas.Name = "_canvas";
-            this._canvas.Size = new System.Drawing.Size(160, 90);
+            this._canvas.Size = new System.Drawing.Size(458, 153);
             this._canvas.TabIndex = 5;
+            this._canvas.SizeChanged += new System.EventHandler(this._canvas_SizeChanged);
             // 
             // splitter2
             // 
@@ -289,6 +294,16 @@ namespace PowerPoint
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this._canvas);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(221, 16);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(470, 462);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +323,8 @@ namespace PowerPoint
             this._toolStrip1.ResumeLayout(false);
             this._toolStrip1.PerformLayout();
             this._groupBox3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,6 +353,7 @@ namespace PowerPoint
         private System.Windows.Forms.GroupBox _groupBox3;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

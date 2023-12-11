@@ -18,7 +18,7 @@ namespace PowerPoint.Tests
         [TestInitialize()]
         public void SetUp()
         {
-            _adapter = new GraphicsAdapter(Graphics.FromImage(new Bitmap(1, 1)));
+            _adapter = new GraphicsAdapter(Graphics.FromImage(new Bitmap(1, 1)), new Size(100, 100));
         }
 
         /// <summary>

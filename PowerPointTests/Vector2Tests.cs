@@ -31,5 +31,17 @@ namespace PowerPoint.Tests
 
             Assert.IsTrue(Vector2.IsInRange(p1, p2, new Vector2(5, 5)));
         }
+
+        /// <summary>
+        /// range
+        /// </summary>
+        [TestMethod()]
+        public void IsInRadiusTest()
+        {
+            var p1 = new Vector2(0, 0);
+            var p2 = new Vector2(10, 10);
+
+            Assert.IsTrue(Vector2.IsInRadius(new Vector2(5, 5), 5, new Vector2(5, 5)));
+        }
     }
 }

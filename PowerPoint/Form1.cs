@@ -185,6 +185,11 @@ namespace PowerPoint
             _viewModel.Redo();
         }
 
+        /// <summary>
+        /// ratio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetAspectRatio(object sender, EventArgs e)
         {
             Control c = (Control)sender; // possible be canvas or button
@@ -194,9 +199,14 @@ namespace PowerPoint
             _canvas.Refresh();
         }
 
+        /// <summary>
+        /// history
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _canvas_Resize(object sender, EventArgs e)
         {
-
+            // historical reasons
         }
     }
 }

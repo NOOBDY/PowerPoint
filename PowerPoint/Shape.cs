@@ -7,12 +7,6 @@ namespace PowerPoint
 {
     public abstract class Shape : ICloneable
     {
-        public Shape(Shape other)
-        {
-            _point1 = new Vector2(other._point1);
-            _point2 = new Vector2(other._point2);
-        }
-
         /// <summary>
         /// shape
         /// </summary>

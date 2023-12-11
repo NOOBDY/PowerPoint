@@ -21,9 +21,11 @@ namespace PowerPoint.Tests
         public void SetUp()
         {
             _viewModel = new ViewModel();
-            var shape = new Rectangle(new Vector2(0, 0), new Vector2(100, 100));
+            var shape = new Rectangle(new Vector2(0, 0), new Vector2(1, 1));
             _viewModel.Add(shape);
             _viewModel._modelChanged += () => {};
+            _canvas = new Canvas();
+            _canvas.Size = new Size(100, 100);
         }
 
         /// <summary>
@@ -47,7 +49,7 @@ namespace PowerPoint.Tests
             _viewModel.Draw(graphicsMock);
 
             _viewModel.SetMode(ViewModel.Mode.Draw);
-            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
             _viewModel.Draw(graphicsMock);
         }
 
@@ -94,7 +96,7 @@ namespace PowerPoint.Tests
         {
             var eventMock = new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0);
 
-            _viewModel.HandleCanvasPressed(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
         }
 
         /// <summary>
@@ -108,19 +110,19 @@ namespace PowerPoint.Tests
 
             _viewModel.SetMode(ViewModel.Mode.Draw);
 
-            _viewModel.HandleCanvasMoved(null, eventMock1);
-            _viewModel.HandleCanvasPressed(null, eventMock1);
-            _viewModel.HandleCanvasMoved(null, eventMock1);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock1);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock1);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock1);
 
             _viewModel.SetMode(ViewModel.Mode.Select);
 
-            _viewModel.HandleCanvasMoved(null, eventMock1);
-            _viewModel.HandleCanvasPressed(null, eventMock1);
-            _viewModel.HandleCanvasMoved(null, eventMock1);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock1);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock1);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock1);
 
-            _viewModel.HandleCanvasMoved(null, eventMock2);
-            _viewModel.HandleCanvasPressed(null, eventMock2);
-            _viewModel.HandleCanvasMoved(null, eventMock2);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock2);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock2);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock2);
         }
 
         /// <summary>
@@ -133,15 +135,15 @@ namespace PowerPoint.Tests
 
             _viewModel.SetMode(ViewModel.Mode.Draw);
 
-            _viewModel.HandleCanvasReleased(null, eventMock);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasReleased(null, eventMock);
+            _viewModel.HandleCanvasReleased(_canvas, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasReleased(_canvas, eventMock);
 
             _viewModel.SetMode(ViewModel.Mode.Select);
 
-            _viewModel.HandleCanvasReleased(null, eventMock);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasReleased(null, eventMock);
+            _viewModel.HandleCanvasReleased(_canvas, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasReleased(_canvas, eventMock);
         }
 
         /// <summary>
@@ -165,35 +167,46 @@ namespace PowerPoint.Tests
         {
             _viewModel.SetMode(ViewModel.Mode.Select);
 
+            _viewModel.DeleteSelected();
+
             var select = new MouseEventArgs(MouseButtons.Left, 1, 50, 50, 0);
-            _viewModel.HandleCanvasPressed(null, select);
+            _viewModel.HandleCanvasPressed(_canvas, select);
 
             var eventMock = new MouseEventArgs(MouseButtons.Left, 1, 1, 1, 0);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasMoved(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock);
             eventMock = new MouseEventArgs(MouseButtons.Left, 1, 1, 50, 0);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasMoved(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock);
             eventMock = new MouseEventArgs(MouseButtons.Left, 1, 1, 99, 0);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasMoved(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock);
             eventMock = new MouseEventArgs(MouseButtons.Left, 1, 50, 99, 0);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasMoved(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock);
             eventMock = new MouseEventArgs(MouseButtons.Left, 1, 99, 99, 0);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasMoved(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock);
             eventMock = new MouseEventArgs(MouseButtons.Left, 1, 99, 50, 0);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasMoved(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock);
             eventMock = new MouseEventArgs(MouseButtons.Left, 1, 99, 1, 0);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasMoved(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock);
             eventMock = new MouseEventArgs(MouseButtons.Left, 1, 50, 1, 0);
-            _viewModel.HandleCanvasPressed(null, eventMock);
-            _viewModel.HandleCanvasMoved(null, eventMock);
+            _viewModel.HandleCanvasPressed(_canvas, eventMock);
+            _viewModel.HandleCanvasMoved(_canvas, eventMock);
+
+
+            _viewModel.Redo();
+            for (int i = 0; i < 100; i++)
+            {
+                _viewModel.Undo();
+            }
+            _viewModel.Redo();
         }
 
         private ViewModel _viewModel;
+        private Canvas _canvas;
     }
 }

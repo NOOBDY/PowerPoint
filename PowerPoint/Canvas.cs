@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PowerPoint
 {
-    internal sealed class Canvas : Panel
+    public sealed class Canvas : Panel
     {
         public Canvas()
         {

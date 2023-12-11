@@ -68,10 +68,12 @@ namespace PowerPoint
             return Math.Pow(center.X - target.X, 2) + Math.Pow(center.Y - target.Y, 2) <= Math.Pow(radius, 2);
         }
 
-        public static Vector2 operator *(Vector2 l, Size r)
-        {
-            return new Vector2(l.X * r.Width, l.Y * r.Height);
-        }
+        /// <summary>
+        /// lr
+        /// </summary>
+        /// <param name="l"></param>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public static Vector2 operator /(Vector2 l, Size r)
         {
             return new Vector2(l.X / r.Width, l.Y / r.Height);

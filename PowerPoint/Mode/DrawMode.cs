@@ -21,11 +21,11 @@ namespace PowerPoint
             /// down
             /// </summary>
             /// <param name="sender"></param>
-            /// <param name="yee"></param>
-            public void MouseDown(object sender, MouseEventArgs yee)
+            /// <param name="e"></param>
+            public void MouseDown(object sender, MouseEventArgs e)
             {
-                Debug.Assert(yee.Location.X == yee.X);
-                Debug.Assert(yee.Location.Y == yee.Y);
+                Debug.Assert(e.Location.X == e.X);
+                Debug.Assert(e.Location.Y == e.Y);
 
                 var canvasSize = ((Canvas)sender).Size;
 
@@ -33,8 +33,8 @@ namespace PowerPoint
                 _viewModel._previewShape = ShapeFactory.CreateShape
                 (
                     _viewModel.SelectedShape,
-                    new Vector2(yee.X, yee.Y) / canvasSize,
-                    new Vector2(yee.X, yee.Y) / canvasSize
+                    new Vector2(e.X, e.Y) / canvasSize,
+                    new Vector2(e.X, e.Y) / canvasSize
                 );
             }
 
@@ -42,13 +42,12 @@ namespace PowerPoint
             /// drag
             /// </summary>
             /// <param name="sender"></param>
-            /// <param name="scaledPoint"></param>
-            public void MouseDrag(object sender, MouseEventArgs scaledPoint)
+            /// <param name="e"></param>
+            public void MouseDrag(object sender, MouseEventArgs e)
             {
                 var canvasSize = ((Canvas)sender).Size;
 
-                _viewModel._previewShape._point2.X = (float)scaledPoint.X / canvasSize.Width;
-                _viewModel._previewShape._point2.Y = (float)scaledPoint.Y / canvasSize.Height;
+                _viewModel._previewShape._point2 = new Vector2(e.X, e.Y) / canvasSize;
                 _viewModel.NotifyModelChanged();
             }
 
@@ -60,8 +59,8 @@ namespace PowerPoint
             public void MouseUp(object sender, MouseEventArgs e)
             {
                 // if something can't work, redo this
-                //_viewModel._previewShape._point2.X = yee.X;
-                //_viewModel._previewShape._point2.Y = yee.Y;
+                //_viewModel._previewShape._point2.X = e.X;
+                //_viewModel._previewShape._point2.Y = e.Y;
                 _viewModel.Shapes.Add( ShapeFactory.CreateShape(_viewModel.SelectedShape, _viewModel._previewShape._point1, _viewModel._previewShape._point2));
 
                 _viewModel._previewShape = null;

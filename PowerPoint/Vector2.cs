@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace PowerPoint
 {
@@ -10,19 +11,19 @@ namespace PowerPoint
             Y = other.Y;
         }
 
-        public Vector2(int x, int y)
+        public Vector2(float x, float y)
         {
             X = x;
             Y = y;
         }
 
-        public int X
+        public float X
         {
             get;
             set;
         }
 
-        public int Y
+        public float Y
         {
             get;
             set;
@@ -65,6 +66,15 @@ namespace PowerPoint
         public static bool IsInRadius(Vector2 center, float radius, Vector2 target)
         {
             return Math.Pow(center.X - target.X, 2) + Math.Pow(center.Y - target.Y, 2) <= Math.Pow(radius, 2);
+        }
+
+        public static Vector2 operator *(Vector2 l, Size r)
+        {
+            return new Vector2(l.X * r.Width, l.Y * r.Height);
+        }
+        public static Vector2 operator /(Vector2 l, Size r)
+        {
+            return new Vector2(l.X / r.Width, l.Y / r.Height);
         }
     }
 }

@@ -79,7 +79,7 @@ namespace PowerPoint
             this._dataGridView1.RowHeadersVisible = false;
             this._dataGridView1.RowHeadersWidth = 51;
             this._dataGridView1.RowTemplate.Height = 24;
-            this._dataGridView1.Size = new System.Drawing.Size(196, 447);
+            this._dataGridView1.Size = new System.Drawing.Size(118, 447);
             this._dataGridView1.TabIndex = 0;
             this._dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickDataGridView1CellContent);
             // 
@@ -101,11 +101,11 @@ namespace PowerPoint
             this._groupBox1.Controls.Add(this._addButton);
             this._groupBox1.Controls.Add(this._dataGridView1);
             this._groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this._groupBox1.Location = new System.Drawing.Point(726, 16);
+            this._groupBox1.Location = new System.Drawing.Point(780, 16);
             this._groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this._groupBox1.Name = "_groupBox1";
             this._groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this._groupBox1.Size = new System.Drawing.Size(217, 462);
+            this._groupBox1.Size = new System.Drawing.Size(139, 462);
             this._groupBox1.TabIndex = 1;
             this._groupBox1.TabStop = false;
             // 
@@ -117,7 +117,7 @@ namespace PowerPoint
             this._comboBox1.FormattingEnabled = true;
             this._comboBox1.Location = new System.Drawing.Point(120, 31);
             this._comboBox1.Name = "_comboBox1";
-            this._comboBox1.Size = new System.Drawing.Size(92, 21);
+            this._comboBox1.Size = new System.Drawing.Size(14, 21);
             this._comboBox1.TabIndex = 2;
             // 
             // _addButton
@@ -163,7 +163,7 @@ namespace PowerPoint
             this._groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this._groupBox2.Location = new System.Drawing.Point(3, 16);
             this._groupBox2.Name = "_groupBox2";
-            this._groupBox2.Size = new System.Drawing.Size(204, 462);
+            this._groupBox2.Size = new System.Drawing.Size(130, 462);
             this._groupBox2.TabIndex = 3;
             this._groupBox2.TabStop = false;
             // 
@@ -174,7 +174,7 @@ namespace PowerPoint
             this._preview.Location = new System.Drawing.Point(5, 11);
             this._preview.Margin = new System.Windows.Forms.Padding(2);
             this._preview.Name = "_preview";
-            this._preview.Size = new System.Drawing.Size(194, 137);
+            this._preview.Size = new System.Drawing.Size(120, 137);
             this._preview.TabIndex = 0;
             this._preview.UseVisualStyleBackColor = true;
             // 
@@ -252,14 +252,17 @@ namespace PowerPoint
             // 
             // _groupBox3
             // 
+            this._groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._groupBox3.Controls.Add(this.groupBox1);
             this._groupBox3.Controls.Add(this.splitter2);
             this._groupBox3.Controls.Add(this.splitter1);
             this._groupBox3.Controls.Add(this._groupBox2);
             this._groupBox3.Controls.Add(this._groupBox1);
-            this._groupBox3.Location = new System.Drawing.Point(0, 54);
+            this._groupBox3.Location = new System.Drawing.Point(12, 54);
             this._groupBox3.Name = "_groupBox3";
-            this._groupBox3.Size = new System.Drawing.Size(946, 481);
+            this._groupBox3.Size = new System.Drawing.Size(922, 481);
             this._groupBox3.TabIndex = 6;
             this._groupBox3.TabStop = false;
             this._groupBox3.Text = "groupBox1";
@@ -271,26 +274,27 @@ namespace PowerPoint
             this._canvas.BackColor = System.Drawing.SystemColors.Info;
             this._canvas.Location = new System.Drawing.Point(6, 19);
             this._canvas.Name = "_canvas";
-            this._canvas.Size = new System.Drawing.Size(458, 153);
+            this._canvas.Size = new System.Drawing.Size(604, 153);
             this._canvas.TabIndex = 5;
-            this._canvas.SizeChanged += new System.EventHandler(this._canvas_SizeChanged);
+            this._canvas.SizeChanged += new System.EventHandler(this.SetAspectRatio);
+            this._canvas.Resize += new System.EventHandler(this._canvas_Resize);
             // 
             // splitter2
             // 
             this.splitter2.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Location = new System.Drawing.Point(691, 16);
+            this.splitter2.Location = new System.Drawing.Point(758, 16);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(35, 462);
+            this.splitter2.Size = new System.Drawing.Size(22, 462);
             this.splitter2.TabIndex = 7;
             this.splitter2.TabStop = false;
             // 
             // splitter1
             // 
             this.splitter1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.splitter1.Location = new System.Drawing.Point(207, 16);
+            this.splitter1.Location = new System.Drawing.Point(133, 16);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(14, 462);
+            this.splitter1.Size = new System.Drawing.Size(9, 462);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
             // 
@@ -298,9 +302,9 @@ namespace PowerPoint
             // 
             this.groupBox1.Controls.Add(this._canvas);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(221, 16);
+            this.groupBox1.Location = new System.Drawing.Point(142, 16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(470, 462);
+            this.groupBox1.Size = new System.Drawing.Size(616, 462);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 

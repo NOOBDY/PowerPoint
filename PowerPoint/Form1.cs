@@ -33,11 +33,11 @@ namespace PowerPoint
             KeyPreview = true;
             KeyDown += OnKeyDown;
 
-            _preview.SizeChanged += _canvas_SizeChanged;
+            _preview.SizeChanged += SetAspectRatio;
 
-            _bitmap = new Bitmap(_canvas.Width, _canvas.Height);
             UpdatePreview();
-            _canvas_SizeChanged(_canvas, null);
+            SetAspectRatio(_canvas, null);
+            SetAspectRatio(_preview, null);
         }
 
         /// <summary>
@@ -45,8 +45,10 @@ namespace PowerPoint
         /// </summary>
         private void UpdatePreview()
         {
-            _canvas.DrawToBitmap(_bitmap, new System.Drawing.Rectangle(0, 0, _canvas.Width, _canvas.Height));
-            _preview.Image = new Bitmap(_bitmap, _preview.Size);
+            //_canvas.DrawToBitmap(_bitmap, new System.Drawing.Rectangle(0, 0, _canvas.Width, _canvas.Height));
+            var bitmap = new Bitmap(_canvas.Width, _canvas.Height);
+            _canvas.DrawToBitmap(bitmap, new System.Drawing.Rectangle(new Point(0,0), _canvas.Size));
+            _preview.Image = new Bitmap(bitmap, _preview.Size);
         }
 
         /// <summary>
@@ -120,9 +122,9 @@ namespace PowerPoint
         /// <param name="e"></param>
         private void HandleCanvasPaint(object sender, PaintEventArgs e)
         {
-            var adapter = new GraphicsAdapter(e.Graphics);
+            var canvas = (Canvas)sender;
+            var adapter = new GraphicsAdapter(e.Graphics, canvas.Size);
             _viewModel.Draw(adapter);
-
             UpdateToolbar();
             UpdatePreview();
         }
@@ -165,8 +167,6 @@ namespace PowerPoint
 
         private readonly ViewModel _viewModel;
 
-        private Bitmap _bitmap;
-
         /// <summary>
         /// undo
         /// </summary>
@@ -187,11 +187,18 @@ namespace PowerPoint
             _viewModel.Redo();
         }
 
-        private void _canvas_SizeChanged(object sender, EventArgs e)
+        private void SetAspectRatio(object sender, EventArgs e)
         {
-            Control c = (Control)sender;
+            Control c = (Control)sender; // possible be canvas or button
             c.Size = new Size(c.Size.Width, c.Size.Width / 16 * 9);
             UpdatePreview();
+            // force redraw canvas because it doesn't fucking work
+            _canvas.Refresh();
+        }
+
+        private void _canvas_Resize(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,9 +9,10 @@ namespace PowerPoint
 {
     public class GraphicsAdapter : IGraphics
     {
-        public GraphicsAdapter(Graphics graphics)
+        public GraphicsAdapter(Graphics graphics, Size size)
         {
             _graphics = graphics;
+            _scale = size;
         }
 
         /// <summary>
@@ -24,7 +25,7 @@ namespace PowerPoint
         /// <param name="y2"></param>
         public void DrawLine(Pen pen, float x1, float y1, float x2, float y2)
         {
-            _graphics.DrawLine(pen, x1, y1, x2, y2);
+            _graphics.DrawLine(pen, x1 * _scale.Width, y1 * _scale.Height, x2 * _scale.Width, y2 * _scale.Height);
         }
 
         /// <summary>
@@ -37,7 +38,7 @@ namespace PowerPoint
         /// <param name="y2"></param>
         public void DrawRectangle(Pen pen, float x1, float y1, float x2, float y2)
         {
-            _graphics.DrawRectangle(pen, x1, y1, x2, y2);
+            _graphics.DrawRectangle(pen, x1 * _scale.Width, y1 * _scale.Height, x2 * _scale.Width, y2 * _scale.Height);
         }
 
         /// <summary>
@@ -50,9 +51,10 @@ namespace PowerPoint
         /// <param name="y2"></param>
         public void DrawEllipse(Pen pen, float x1, float y1, float x2, float y2)
         {
-            _graphics.DrawEllipse(pen, x1, y1, x2, y2);
+            _graphics.DrawEllipse(pen, x1 * _scale.Width, y1 * _scale.Height, x2 * _scale.Width, y2 * _scale.Height);
         }
 
         private Graphics _graphics;
+        private Size _scale;
     }
 }

@@ -15,15 +15,15 @@ namespace PowerPoint
             /// down
             /// </summary>
             /// <param name="sender"></param>
-            /// <param name="e"></param>
-            void MouseDown(object sender, MouseEventArgs e);
+            /// <param name="yee"></param>
+            void MouseDown(object sender, MouseEventArgs yee);
 
             /// <summary>
             /// drag
             /// </summary>
             /// <param name="sender"></param>
-            /// <param name="e"></param>
-            void MouseDrag(object sender, MouseEventArgs e);
+            /// <param name="scaledPoint"></param>
+            void MouseDrag(object sender, MouseEventArgs scaledPoint);
 
             /// <summary>
             /// up

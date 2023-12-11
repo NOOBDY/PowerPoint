@@ -132,7 +132,7 @@ namespace PowerPoint
         public void HandleCanvasPressed(object sender, MouseEventArgs e)
         {
             _isPressed = true;
-            _previousMousePosition = new Vector2(e.X, e.Y);
+            // _previousMousePosition = new Vector2(e.X, e.Y);
 
             _currentMode.MouseDown(sender, e);
         }
@@ -227,6 +227,5 @@ namespace PowerPoint
             set;
         }
 
-        private Vector2 _previousMousePosition;
     }
 }

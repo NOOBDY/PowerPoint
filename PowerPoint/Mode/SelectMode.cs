@@ -23,19 +23,23 @@ namespace PowerPoint
             /// <param name="e"></param>
             public void MouseDown(object sender, MouseEventArgs e)
             {
+                var canvasSize = ((Canvas)sender).Size;
+                var scaledPoint = new Vector2(e.X, e.Y) / canvasSize;
                 _resizing = -1;
                 var selectedShape = _viewModel.Shapes.FirstOrDefault(shape => shape._selected);
 
+                _previousMousePosition = new Vector2(scaledPoint);
+
                 if (selectedShape != null)
                 {
-                    _resizing = Array.FindIndex(selectedShape.Anchors, point => Vector2.IsInRadius(new Vector2(e.X, e.Y), RADIUS, point));
-                    selectedShape._selected = _resizing != -1 || Vector2.IsInRange(selectedShape._point1, selectedShape._point2, new Vector2(e.X, e.Y));
+                    _resizing = Array.FindIndex(selectedShape.Anchors, point => Vector2.IsInRadius(scaledPoint, RADIUS, point));
+                    selectedShape._selected = _resizing != -1 || Vector2.IsInRange(selectedShape._point1, selectedShape._point2, scaledPoint);
                     _viewModel.NotifyModelChanged();
                     return;
                 }
 
                 _viewModel.Action();
-                selectedShape = _viewModel.Shapes.FirstOrDefault(shape => Vector2.IsInRange(shape._point1, shape._point2, new Vector2(e.X, e.Y)));
+                selectedShape = _viewModel.Shapes.FirstOrDefault(shape => Vector2.IsInRange(shape._point1, shape._point2, scaledPoint));
 
                 if (selectedShape == null)
                 {
@@ -56,6 +60,9 @@ namespace PowerPoint
             /// <param name="e"></param>
             public void MouseDrag(object sender, MouseEventArgs e)
             {
+                var canvasSize = ((Canvas)sender).Size;
+                var scaledPoint = new Vector2(e.X, e.Y) / canvasSize;
+
                 var selectedShape = _viewModel.Shapes.FirstOrDefault(
                     shape => shape._selected
                 );
@@ -64,11 +71,11 @@ namespace PowerPoint
                     return;
 
                 var mouseDelta = new Vector2(
-                    e.X - _viewModel._previousMousePosition.X,
-                    e.Y - _viewModel._previousMousePosition.Y);
+                    scaledPoint.X - _previousMousePosition.X,
+                    scaledPoint.Y - _previousMousePosition.Y);
 
-                _viewModel._previousMousePosition.X = e.X;
-                _viewModel._previousMousePosition.Y = e.Y;
+                _previousMousePosition.X = scaledPoint.X;
+                _previousMousePosition.Y = scaledPoint.Y;
 
                 if (_resizing != -1)
                 {
@@ -125,9 +132,11 @@ namespace PowerPoint
             {
             }
 
-            private const int RADIUS = 5;
+            private const float RADIUS = 0.05f;
             private readonly ViewModel _viewModel;
             private int _resizing;
+
+            private Vector2 _previousMousePosition;
         }
     }
 }

@@ -137,15 +137,13 @@ namespace PowerPoint
         private void Button1Click(object sender, EventArgs e)
         {
             var random = new Random();
-            const int LOWER_BOUND = 50;
-            const int UPPER_BOUND = 400;
 
             var point1 = new Vector2(0, 0);
             var point2 = new Vector2(0, 0);
-            point1.X = random.Next(LOWER_BOUND, UPPER_BOUND);
-            point1.Y = random.Next(LOWER_BOUND, UPPER_BOUND);
-            point2.X = random.Next(LOWER_BOUND, UPPER_BOUND);
-            point2.Y = random.Next(LOWER_BOUND, UPPER_BOUND);
+            point1.X = (float)random.NextDouble();
+            point1.Y = (float)random.NextDouble();
+            point2.X = (float)random.NextDouble();
+            point2.Y = (float)random.NextDouble();
 
             _viewModel.Action();
             _viewModel.Add(ShapeFactory.CreateShape((ShapeType)_comboBox1.SelectedItem, point1, point2));

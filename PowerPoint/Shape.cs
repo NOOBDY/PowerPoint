@@ -45,7 +45,7 @@ namespace PowerPoint
             var height = Math.Abs(_point1.Y - _point2.Y);
             graphics.DrawRectangle(Pens.Red, x, y, width, height);
 
-            const int DIAMETER = 10;
+            const float DIAMETER = 0.02f;
 
             Anchors = new[]
             {
@@ -75,10 +75,10 @@ namespace PowerPoint
         {
             graphics.DrawEllipse(
                 Pens.Black,
-                point.X - (diameter / 2),
-                point.Y - (diameter / 2),
-                diameter,
-                diameter
+                point.X - (diameter * 0.9f / 2),
+                point.Y - (diameter * 1.6f / 2),
+                diameter * 0.9f,
+                diameter * 1.6f
             );
         }
 

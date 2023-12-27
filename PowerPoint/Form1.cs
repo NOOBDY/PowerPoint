@@ -45,10 +45,10 @@ namespace PowerPoint
         /// </summary>
         private void UpdatePreview()
         {
-            //_canvas.DrawToBitmap(_bitmap, new System.Drawing.Rectangle(0, 0, _canvas.Width, _canvas.Height));
             var bitmap = new Bitmap(_canvas.Width, _canvas.Height);
             _canvas.DrawToBitmap(bitmap, new System.Drawing.Rectangle(new Point(0,0), _canvas.Size));
             _preview.Image = new Bitmap(bitmap, _preview.Size);
+            bitmap.Dispose(); // IMPORTANT DON'T REMOVE
         }
 
         /// <summary>

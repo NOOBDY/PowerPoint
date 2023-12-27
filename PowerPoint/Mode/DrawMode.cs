@@ -61,7 +61,7 @@ namespace PowerPoint
                 // if something can't work, redo this
                 //_viewModel._previewShape._point2.X = e.X;
                 //_viewModel._previewShape._point2.Y = e.Y;
-                _viewModel.Shapes.Add( ShapeFactory.CreateShape(_viewModel.SelectedShape, _viewModel._previewShape._point1, _viewModel._previewShape._point2));
+                _viewModel.Model.Shapes.Add( ShapeFactory.CreateShape(_viewModel.SelectedShape, _viewModel._previewShape._point1, _viewModel._previewShape._point2));
 
                 _viewModel._previewShape = null;
                 _viewModel.SetMode(Mode.Select);

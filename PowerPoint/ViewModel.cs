@@ -15,7 +15,6 @@ namespace PowerPoint
 
         public ViewModel()
         {
-            Shapes = new BindingList<Shape>();
             _selectMode = new SelectMode(this);
             _drawMode = new DrawMode(this);
             _currentMode = _selectMode;
@@ -27,7 +26,7 @@ namespace PowerPoint
         /// <param name="graphics"></param>
         public void Draw(IGraphics graphics)
         {
-            foreach (var shape in Shapes)
+            foreach (var shape in Model.Shapes)
             {
                 shape.Draw(graphics);
             }
@@ -44,12 +43,8 @@ namespace PowerPoint
         /// </summary>
         public void Action()
         {
-            var newShapes = new BindingList<Shape>();
-            foreach (var s in Shapes)
-            {
-                newShapes.Add((Shape)s.Clone());
-            }
-            _undoStack.Push(newShapes);
+            var newModel = (Model)Model.Clone();
+            _undoStack.Push(newModel);
             _redoStack.Clear();
         }
 
@@ -61,8 +56,8 @@ namespace PowerPoint
             if (_undoStack.Count <= 0)
                 return;
 
-            _redoStack.Push(Shapes);
-            Shapes = _undoStack.Pop();
+            _redoStack.Push(Model);
+            Model = _undoStack.Pop();
             NotifyModelChanged();
         }
 
@@ -74,8 +69,8 @@ namespace PowerPoint
             if (_redoStack.Count <= 0)
                 return;
 
-            _undoStack.Push(Shapes);
-            Shapes = _redoStack.Pop();
+            _undoStack.Push(Model);
+            Model = _redoStack.Pop();
             NotifyModelChanged();
         }
 
@@ -85,7 +80,7 @@ namespace PowerPoint
         /// <param name="shape"></param>
         public void Add(Shape shape)
         {
-            Shapes.Add(shape);
+            Model.Add(shape);
             NotifyModelChanged();
         }
 
@@ -95,7 +90,7 @@ namespace PowerPoint
         /// <param name="index"></param>
         public void RemoveAt(int index)
         {
-            Shapes.RemoveAt(index);
+            Model.RemoveAt(index);
             NotifyModelChanged();
         }
 
@@ -115,12 +110,12 @@ namespace PowerPoint
         /// </summary>
         public void DeleteSelected()
         {
-            var index = Shapes.ToList().FindIndex(s => s._selected);
+            var index = Model.Shapes.ToList().FindIndex(s => s._selected);
             if (index == -1)
                 return;
 
             Action();
-            Shapes.RemoveAt(index);
+            Model.Shapes.RemoveAt(index);
             NotifyModelChanged();
         }
 
@@ -212,14 +207,10 @@ namespace PowerPoint
         private readonly SelectMode _selectMode;
         private readonly DrawMode _drawMode;
 
-        private readonly Stack<BindingList<Shape>> _undoStack = new Stack<BindingList<Shape>>();
-        private readonly Stack<BindingList<Shape>> _redoStack = new Stack<BindingList<Shape>>();
+        private readonly Stack<Model> _undoStack = new Stack<Model>();
+        private readonly Stack<Model> _redoStack = new Stack<Model>();
 
-        public BindingList<Shape> Shapes
-        {
-            get;
-            private set;
-        }
+        public Model Model = new Model();
 
         public ShapeType SelectedShape
         {

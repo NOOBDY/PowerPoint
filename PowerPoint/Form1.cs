@@ -16,10 +16,10 @@ namespace PowerPoint
             _viewModel = new ViewModel();
             _viewModel._modelChanged += () =>
             {
-                _dataGridView1.DataSource = _viewModel.Shapes;
+                _dataGridView1.DataSource = _viewModel.Model.Shapes;
                 Invalidate(true);
             };
-            _dataGridView1.DataSource = _viewModel.Shapes;
+            _dataGridView1.DataSource = _viewModel.Model.Shapes;
 
             _toolStripButton1.Click += new EventHandler(ClickToolStripButton(ShapeType.Line));
             _toolStripButton2.Click += new EventHandler(ClickToolStripButton(ShapeType.Rectangle));

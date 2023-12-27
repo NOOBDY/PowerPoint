@@ -26,7 +26,7 @@ namespace PowerPoint
                 var canvasSize = ((Canvas)sender).Size;
                 var scaledPoint = new Vector2(e.X, e.Y) / canvasSize;
                 _resizing = -1;
-                var selectedShape = _viewModel.Shapes.FirstOrDefault(shape => shape._selected);
+                var selectedShape = _viewModel.Model.Shapes.FirstOrDefault(shape => shape._selected);
 
                 _previousMousePosition = new Vector2(scaledPoint);
 
@@ -39,11 +39,11 @@ namespace PowerPoint
                 }
 
                 _viewModel.Action();
-                selectedShape = _viewModel.Shapes.FirstOrDefault(shape => Vector2.IsInRange(shape._point1, shape._point2, scaledPoint));
+                selectedShape = _viewModel.Model.Shapes.FirstOrDefault(shape => Vector2.IsInRange(shape._point1, shape._point2, scaledPoint));
 
                 if (selectedShape == null)
                 {
-                    foreach (var shape in _viewModel.Shapes)
+                    foreach (var shape in _viewModel.Model.Shapes)
                         shape._selected = false;
                     return;
                 }
@@ -63,7 +63,7 @@ namespace PowerPoint
                 var canvasSize = ((Canvas)sender).Size;
                 var scaledPoint = new Vector2(e.X, e.Y) / canvasSize;
 
-                var selectedShape = _viewModel.Shapes.FirstOrDefault(
+                var selectedShape = _viewModel.Model.Shapes.FirstOrDefault(
                     shape => shape._selected
                 );
 

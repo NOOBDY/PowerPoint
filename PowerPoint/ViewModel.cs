@@ -10,7 +10,7 @@ namespace PowerPoint
 {
     public partial class ViewModel
     {
-        public event ModelChangedEventHandler _modelChanged;
+        public event ModelChangedEventHandler ModelChanged;
         public delegate void ModelChangedEventHandler();
 
         public ViewModel()
@@ -99,9 +99,9 @@ namespace PowerPoint
         /// </summary>
         private void NotifyModelChanged()
         {
-            if (_modelChanged != null)
+            if (ModelChanged != null)
             {
-                _modelChanged.Invoke();
+                ModelChanged.Invoke();
             }
         }
 
@@ -211,6 +211,23 @@ namespace PowerPoint
         private readonly Stack<Model> _redoStack = new Stack<Model>();
 
         public Model Model = new Model();
+
+        public int ActivePageIndex
+        {
+            get => Model.ActivePageIndex;
+            set
+            {
+                Model.ActivePageIndex = value;
+                NotifyModelChanged();
+            }
+        }
+
+        public int PageCount => Model.PageCount;
+
+        /// <summary>
+        /// add
+        /// </summary>
+        public void AddPage() => Model.AddPage();
 
         public ShapeType SelectedShape
         {

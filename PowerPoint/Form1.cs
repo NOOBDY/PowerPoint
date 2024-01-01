@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,10 +12,14 @@ namespace PowerPoint
         public Form1()
         {
             InitializeComponent();
+
+            _flexBox.Controls.Add(NewPreview(0));
+
             _comboBox1.DataSource = Enum.GetValues(typeof(ShapeType));
 
             _viewModel = new ViewModel();
-            _viewModel._modelChanged += () =>
+            _viewModel.AddPage();
+            _viewModel.ModelChanged += () =>
             {
                 _dataGridView1.DataSource = _viewModel.Model.Shapes;
                 Invalidate(true);
@@ -33,23 +38,32 @@ namespace PowerPoint
             KeyPreview = true;
             KeyDown += OnKeyDown;
 
-            _preview.SizeChanged += SetAspectRatio;
-
-            UpdatePreview();
-            SetAspectRatio(_canvas, null);
-            SetAspectRatio(_preview, null);
+            ((Preview)_flexBox.Controls[0]).UpdatePreview(_canvas);
         }
 
         /// <summary>
-        /// update
+        /// new
         /// </summary>
-        private void UpdatePreview()
+        /// <param name="index"></param>
+        /// <returns></returns>
+        private Preview NewPreview(int index)
         {
-            var bitmap = new Bitmap(_canvas.Width, _canvas.Height);
-            _canvas.DrawToBitmap(bitmap, new System.Drawing.Rectangle(new Point(0,0), _canvas.Size));
-            _preview.Image = new Bitmap(bitmap, _preview.Size);
-            bitmap.Dispose(); // IMPORTANT DON'T REMOVE
+            var preview = new Preview(index);
+
+            preview.Click += (sender, args) =>
+            {
+                _viewModel.ActivePageIndex = index;
+                
+            };
+
+            if (_viewModel != null)
+            {
+                _viewModel.AddPage();
+            }
+
+            return preview;
         }
+
 
         /// <summary>
         /// delete
@@ -84,6 +98,19 @@ namespace PowerPoint
             _toolStripButton3.Checked = _viewModel.GetMode() == ViewModel.Mode.Draw &&
                                         _viewModel.SelectedShape == ShapeType.Ellipse;
             _toolStripButton4.Checked = _viewModel.GetMode() == ViewModel.Mode.Select;
+        }
+
+        /// <summary>
+        /// click
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        private ButtonClickFunction SelectPage(int index)
+        {
+            return (sender, args) =>
+            {
+                _viewModel.ActivePageIndex = index;
+            };
         }
 
         /// <summary>
@@ -126,7 +153,7 @@ namespace PowerPoint
             var adapter = new GraphicsAdapter(e.Graphics, canvas.Size);
             _viewModel.Draw(adapter);
             UpdateToolbar();
-            UpdatePreview();
+            ((Preview)_flexBox.Controls[_viewModel.ActivePageIndex]).UpdatePreview(_canvas);
         }
 
         /// <summary>
@@ -190,13 +217,16 @@ namespace PowerPoint
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SetAspectRatio(object sender, EventArgs e)
+        public void SetAspectRatio(object sender, EventArgs e)
         {
-            Control c = (Control)sender; // possible be canvas or button
+            if (_viewModel == null)
+            {
+                return;
+            }
+
+            var c = (Control)sender; // possible be canvas or button
             c.Size = new Size(c.Size.Width, c.Size.Width / 16 * 9);
-            UpdatePreview();
-            // force redraw canvas because it doesn't fucking work
-            _canvas.Refresh();
+            // _canvas.Refresh moved downstairs
         }
 
         /// <summary>
@@ -206,7 +236,34 @@ namespace PowerPoint
         /// <param name="e"></param>
         private void _canvas_Resize(object sender, EventArgs e)
         {
-            // historical reasons
+            // force redraw canvas because it doesn't fucking work
+            _canvas.Refresh();
+        }
+
+        /// <summary>
+        /// layout
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FlexBoxLayout(object sender, LayoutEventArgs e)
+        {
+            foreach (Preview preview in _flexBox.Controls)
+            {
+                var size = preview.Size;
+                size.Width = ((FlowLayoutPanel)sender).Size.Width - 12;
+                size.Height = size.Width * 9 / 16;
+                preview.Size = size;
+                if (_viewModel != null && preview == _flexBox.Controls[_viewModel.ActivePageIndex])
+                {
+                    preview.UpdatePreview(_canvas);
+                }
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            var newButton = NewPreview(_viewModel.PageCount);
+            _flexBox.Controls.Add(newButton);
         }
     }
 }

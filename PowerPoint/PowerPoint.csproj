@@ -76,6 +76,9 @@
     <Compile Include="Mode\IMode.cs" />
     <Compile Include="Ellipse.cs" />
     <Compile Include="Line.cs" />
+    <Compile Include="Preview.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ShapeType.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="Rectangle.cs" />

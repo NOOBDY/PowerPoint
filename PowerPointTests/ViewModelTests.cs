@@ -23,7 +23,7 @@ namespace PowerPoint.Tests
             _viewModel = new ViewModel();
             var shape = new Rectangle(new Vector2(0, 0), new Vector2(1, 1));
             _viewModel.Add(shape);
-            _viewModel._modelChanged += () => {};
+            _viewModel.ModelChanged += () => {};
             _canvas = new Canvas();
             _canvas.Size = new Size(100, 100);
         }

@@ -27,9 +27,7 @@ namespace PowerPoint
                 var scaledPoint = new Vector2(e.X, e.Y) / canvasSize;
                 _resizing = -1;
                 var selectedShape = _viewModel.Model.Shapes.FirstOrDefault(shape => shape._selected);
-
                 _previousMousePosition = new Vector2(scaledPoint);
-
                 if (selectedShape != null)
                 {
                     _resizing = Array.FindIndex(selectedShape.Anchors, point => Vector2.IsInRadius(scaledPoint, RADIUS, point));
@@ -37,19 +35,25 @@ namespace PowerPoint
                     _viewModel.NotifyModelChanged();
                     return;
                 }
+                MouseDown2(sender, e, selectedShape);
+            }
 
+            /// <summary>
+            /// down2
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+            /// <param name="selectedShape"></param>
+            private void MouseDown2(object sender, MouseEventArgs e, Shape selectedShape)
+            {
                 _viewModel.Action();
                 selectedShape = _viewModel.Model.Shapes.FirstOrDefault(shape => Vector2.IsInRange(shape._point1, shape._point2, scaledPoint));
-
                 if (selectedShape == null)
                 {
-                    foreach (var shape in _viewModel.Model.Shapes)
-                        shape._selected = false;
+                    foreach (var shape in _viewModel.Model.Shapes) shape._selected = false;
                     return;
                 }
-
                 selectedShape._selected = true;
-
                 _viewModel.NotifyModelChanged();
             }
 
@@ -63,16 +67,11 @@ namespace PowerPoint
                 var canvasSize = ((Canvas)sender).Size;
                 var scaledPoint = new Vector2(e.X, e.Y) / canvasSize;
 
-                var selectedShape = _viewModel.Model.Shapes.FirstOrDefault(
-                    shape => shape._selected
-                );
+                var selectedShape = _viewModel.Model.Shapes.FirstOrDefault(shape => shape._selected);
 
-                if (selectedShape == null)
-                    return;
+                if (selectedShape == null) return;
 
-                var mouseDelta = new Vector2(
-                    scaledPoint.X - _previousMousePosition.X,
-                    scaledPoint.Y - _previousMousePosition.Y);
+                var mouseDelta = new Vector2(scaledPoint.X - _previousMousePosition.X, scaledPoint.Y - _previousMousePosition.Y);
 
                 _previousMousePosition.X = scaledPoint.X;
                 _previousMousePosition.Y = scaledPoint.Y;

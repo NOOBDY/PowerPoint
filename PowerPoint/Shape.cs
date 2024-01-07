@@ -38,9 +38,7 @@ namespace PowerPoint
             var width = Math.Abs(_point1.X - _point2.X);
             var height = Math.Abs(_point1.Y - _point2.Y);
             graphics.DrawRectangle(Pens.Red, x, y, width, height);
-
             const float DIAMETER = 0.02f;
-
             Anchors = new[]
             {
                 _point1,
@@ -52,7 +50,6 @@ namespace PowerPoint
                 new Vector2(_point2.X, _point1.Y),
                 new Vector2((_point1.X + _point2.X) / 2, _point1.Y),
             };
-
             foreach (var point in Anchors)
             {
                 DrawEllipseByCenterAndRadius(graphics, point, DIAMETER);

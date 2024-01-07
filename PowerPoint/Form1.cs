@@ -13,17 +13,18 @@ namespace PowerPoint
         {
             InitializeComponent();
 
-            _flexBox.Controls.Add(NewPreview(0));
 
             _comboBox1.DataSource = Enum.GetValues(typeof(ShapeType));
 
             _viewModel = new ViewModel();
-            _viewModel.AddPage();
             _viewModel.ModelChanged += () =>
             {
                 _dataGridView1.DataSource = _viewModel.Model.Shapes;
                 Invalidate(true);
             };
+
+            _flexBox.Controls.Add(_viewModel.NewPreview());
+
             _dataGridView1.DataSource = _viewModel.Model.Shapes;
 
             _toolStripButton1.Click += new EventHandler(ClickToolStripButton(ShapeType.Line));
@@ -39,29 +40,6 @@ namespace PowerPoint
             KeyDown += OnKeyDown;
 
             ((Preview)_flexBox.Controls[0]).UpdatePreview(_canvas);
-        }
-
-        /// <summary>
-        /// new
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        private Preview NewPreview(int index)
-        {
-            var preview = new Preview(index);
-
-            preview.Click += (sender, args) =>
-            {
-                _viewModel.ActivePageIndex = index;
-                
-            };
-
-            if (_viewModel != null)
-            {
-                _viewModel.AddPage();
-            }
-
-            return preview;
         }
 
 
@@ -260,10 +238,25 @@ namespace PowerPoint
             }
         }
 
+        /// <summary>
+        /// click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            var newButton = NewPreview(_viewModel.PageCount);
-            _flexBox.Controls.Add(newButton);
+            var newPreview = _viewModel.NewPreview();
+            _flexBox.Controls.Add(newPreview);
+
+            var originalIndex = _viewModel.ActivePageIndex;
+            var counter = 0;
+            foreach (Preview preview in _flexBox.Controls)
+            {
+                _viewModel.ActivePageIndex = counter++;
+                preview.UpdatePreview(_canvas);
+            }
+
+            _viewModel.ActivePageIndex = originalIndex;
         }
     }
 }

@@ -23,9 +23,19 @@ namespace PowerPoint
         /// </summary>
         public void AddPage()
         {
-            _internalShapes.Add(new BindingList<Shape>());
+            if (ActivePageIndex >= _internalShapes.Count)
+            {
+                _internalShapes.Add(new BindingList<Shape>());
+                return;
+            }
+
+            _internalShapes.Insert(ActivePageIndex + 1, new BindingList<Shape>());
         }
 
+        /// <summary>
+        /// delete
+        /// </summary>
+        /// <param name="index"></param>
         public void DeletePageAt(int index)
         {
             _internalShapes.RemoveAt(index);

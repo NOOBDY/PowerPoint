@@ -224,16 +224,34 @@ namespace PowerPoint
 
         public int PageCount => Model.PageCount;
 
-        /// <summary>
-        /// add
-        /// </summary>
-        public void AddPage() => Model.AddPage();
-
         public ShapeType SelectedShape
         {
             get;
             set;
         }
+
+        /// <summary>
+        /// new
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Preview NewPreview()
+        {
+            var index = _serialPreviewIndex++;
+            var preview = new Preview(index);
+
+            preview.Click += (sender, args) =>
+            {
+                ActivePageIndex = index;
+            };
+
+            Model.AddPage();
+
+            NotifyModelChanged();
+            return preview;
+        }
+
+        private int _serialPreviewIndex = 0;
 
     }
 }
